@@ -15,52 +15,70 @@
                     <div class="col-md-12">
                         <h5>Patente Municipal TransBank</h5>
                     </div>
-                    <div>
-                        <table class="table table-striped" cellspacing="0" cellpadding="4"  id="ctl00_MainContent_GridView2" style="color:#333333;border-collapse:collapse;">
-                            <tr style="color:rgb(43, 43, 145);font-weight:bold;">
-                                <th scope="col">Año</th>
-                                <th scope="col">Folio</th>
-                                <th scope="col">Fecha Pago</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Semestre</th>
-                                <th scope="col">&nbsp;</th>
-                            </tr>
-                            <tr style="color:#333333;background-color:#F7F6F3;">
-                                <td>2025</td>
-                                <td>11564038</td>
-                                <td>12-09-2020 14:08:37</td>
-                                <td>201774</td>
-                                <td>2</td>
-                                <td><a href="https://www.yopagoenvalpo.cl/aseo/Aseo/comprobante_pago?folio=8677411873837" target="_blank">Ver Comprobante</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                     <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:BoundField DataField="ano" HeaderText="Año" SortExpression="ano" />
+                            <asp:BoundField DataField="idext" HeaderText="Folio" SortExpression="idext" />
+                            <asp:BoundField DataField="tbk_fec_hora_autorizacion" HeaderText="Fecha pago" SortExpression="tbk_fec_hora_autorizacion" />
+                            <asp:BoundField DataField="rol" HeaderText="Rol" SortExpression="rol" />
+                            <asp:BoundField DataField="semestre" HeaderText="Semestre" SortExpression="semestre" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url", "{0}") %>' Target="_blank" Text="Ver Documento"></asp:HyperLink>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BackColor="#999999" />
+                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>" SelectCommand="SELECT rol, ano, semestre, url, tbk_fec_hora_autorizacion, idext FROM vista_patcom_tbk WHERE (rut = @rut)">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="rut" SessionField="rut" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                     <br>
                     <div class="col-md-12">
                         <h5>Patente Municipal TGR</h5>
                     </div>
-                    <div>
-                        <table class="table table-striped" cellspacing="0" cellpadding="4"  id="ctl00_MainContent_GridView2" style="color:#333333;border-collapse:collapse;">
-                            <tr style="color:rgb(43, 43, 145);font-weight:bold;">
-                                <th scope="col">Año</th>
-                                <th scope="col">Folio</th>
-                                <th scope="col">Fecha Pago</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Semestre</th>
-                                <th scope="col">&nbsp;</th>
-                            </tr>
-                            <tr style="color:#333333;background-color:#F7F6F3;">
-                                <td>2025</td>
-                                <td>11470978</td>
-                                <td>12-09-2020 14:08:37</td>
-                                <td>204112</td>
-                                <td>1</td>
-                                <td><a href="https://www.yopagoenvalpo.cl/aseo/Aseo/comprobante_pago?folio=8677411873837" target="_blank">Ver Comprobante</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <asp:GridView ID="grd_patcom" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:BoundField DataField="ano" HeaderText="Año" SortExpression="ano" />
+                            <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
+                            <asp:BoundField DataField="fecha_pago" HeaderText="Fecha pago" SortExpression="fecha_pago" />
+                            <asp:BoundField DataField="rol" HeaderText="Rol" SortExpression="rol" />
+                            <asp:BoundField DataField="semestre" HeaderText="Semestre" SortExpression="semestre" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url", "{0}") %>' Target="_blank">Ver Documento</asp:HyperLink>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BackColor="#999999" />
+                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>" SelectCommand="SELECT folio, fecha_pago, rol, ano, semestre, url FROM vista_pat_com_jc WHERE (rut = @rut) AND (fecha_pago &gt; CONVERT (DATETIME, '2018-12-31 00:00:00', 102)) ORDER BY fecha_pago DESC">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="rut" SessionField="rut" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                 </div>
             </div>
         </div>
