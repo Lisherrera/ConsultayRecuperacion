@@ -146,6 +146,7 @@
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
     <Content Include="consulta_multas.aspx" />
+    <Content Include="consulta_rol_aseo.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="consulta_multas.aspx.vb">
       <DependentUpon>consulta_multas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="consulta_rol_aseo.aspx.designer.vb">
+      <DependentUpon>consulta_rol_aseo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_rol_aseo.aspx.vb">
+      <DependentUpon>consulta_rol_aseo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
