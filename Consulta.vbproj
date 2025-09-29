@@ -145,6 +145,7 @@
     <Content Include="Assets\js\vendor\popper.min.js" />
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
+    <Content Include="consulta-deuda.aspx" />
     <Content Include="consulta_multas.aspx" />
     <Content Include="consulta_rol_aseo.aspx" />
     <Content Include="Default.aspx" />
@@ -190,6 +191,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="consulta-deuda.aspx.designer.vb">
+      <DependentUpon>consulta-deuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consulta-deuda.aspx.vb">
+      <DependentUpon>consulta-deuda.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="consulta_multas.aspx.designer.vb">
       <DependentUpon>consulta_multas.aspx</DependentUpon>
     </Compile>
