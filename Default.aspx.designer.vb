@@ -14,20 +14,20 @@ Option Explicit On
 Partial Public Class _Default
 
     '''<summary>
-    '''Control GridView1.
+    '''Control gvOtrosPagos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gvOtrosPagos As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''Control SqlDataSource4.
+    '''Control sdsOtrosPagos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents SqlDataSource4 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sdsOtrosPagos As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
