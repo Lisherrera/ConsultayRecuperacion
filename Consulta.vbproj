@@ -145,6 +145,7 @@
     <Content Include="Assets\js\vendor\popper.min.js" />
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
+    <Content Include="consulta_multas.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -188,6 +189,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="consulta_multas.aspx.designer.vb">
+      <DependentUpon>consulta_multas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consulta_multas.aspx.vb">
+      <DependentUpon>consulta_multas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
