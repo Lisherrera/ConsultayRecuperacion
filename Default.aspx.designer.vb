@@ -14,29 +14,20 @@ Option Explicit On
 Partial Public Class _Default
 
     '''<summary>
-    '''Control pnl_pagos.
+    '''Control grd_convenios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents pnl_pagos As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents grd_convenios As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''Control grd_pcv.
+    '''Control SqlDataSource3.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents grd_pcv As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Control SqlDataSource1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlDataSource3 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
