@@ -12,28 +12,46 @@
                     </div>
                     <br>
                     
-                    <div>
-                        <table class="table table-striped" cellspacing="0" cellpadding="4"  id="ctl00_MainContent_GridView2" style="color:#333333;border-collapse:collapse;">
-                            <tr style="color:rgb(43, 43, 145);font-weight:bold;">
-                                <th scope="col">Folio</th>
-                                <th scope="col">Patente</th>
-                                <th scope="col">Rut</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Fecha </th>
-                                <th scope="col">&nbsp;</th>
-                            </tr>
-                            <tr style="color:#333333;background-color:#F7F6F3;">
-                                <td>11146876</td>
-                                <td>jsjs-69	</td>
-                                <td>013.333.259-6</td>
-                                <td>HUREL ESTAY MARIA LUISA	</td>
-                                <td>26-08-2022</td>
-                                <td>
-                                    <a id="ctl00_MainContent_grd_pcv_ctl02_HyperLink1" href="http://www.munivalpo.cl/validadoc/default.aspx?id_agile=2993494&amp;code_agile=32703" target="_blank">Ver Documento</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                     <asp:Panel ID="pnl_pagos" runat="server">
+            <div class="row">
+                <div class="col-md-12">
+                    <asp:GridView ID="grd_pcv" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" CssClass="table" DataSourceID="SqlDataSource1" EmptyDataText="Sin Documentos Digitales!" ForeColor="#333333" GridLines="None" PageSize="5" Width="100%">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
+                            <asp:BoundField DataField="patente" HeaderText="Patente" SortExpression="patente" />
+                            <asp:BoundField DataField="rut" HeaderText="Rut" SortExpression="rut" />
+                            <asp:BoundField DataField="nombre" HeaderText="Nombres" SortExpression="nombre" />
+                            <asp:BoundField DataField="fecha_pago" DataFormatString="{0:d}" HeaderText="Fecha" SortExpression="fecha_pago" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("url") %>' Target="_blank">Ver Documento</asp:HyperLink>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BackColor="#999999" />
+                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>" SelectCommand="SELECT folio, rut, url, nombre, rol AS patente, fecha_pago FROM vista_pago_jpl WHERE (rol = @patente) AND (fecha_pago &gt; CONVERT (DATETIME, '2015-12-31 23:59:59', 102))">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="patente" SessionField="patente" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+            </div>
+
+        </asp:Panel>
                 </div>
             </div>
         </div>
