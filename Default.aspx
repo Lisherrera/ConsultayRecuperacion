@@ -2,41 +2,83 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+     <main class="pago-main" data-aos="fade-up">        
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div class="col-md-12">
+                    <h4>Consultas y recuperacion de documentos en línea</h4>
+                    <p>Consulte por deudas, recupere documentos digitales y vea sus horas agendadas.</p>
+                </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting Started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+                <!-- Recuperar por rut -->
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
+                    <div class="w-100 mx-auto border rounded shadow-sm p-3 text-center h-100">
+                        <i class="fa fa-dollar" style="font-size: 40px;"></i>
+           <!-- ver tipografia             -->
+                        <h5 class="mb-3">Consultar <br> deudas</h5>
+                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
+                            En esta sección usted podrá consultar si tienes deudas pendientes con nuestro municipio.
+                        </p>
+
+                        <a href="#" 
+                        class="btn btn-primary">Consultar deuda</a>
+                    </div>
+                </div>
+
+                <!-- Recuperar por Placa patente -->
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
+                    <div class="w-100 mx-auto border rounded shadow-sm p-3 text-center h-100">
+                        <i class="fa fa-file" style="font-size: 40px;"></i>
+                        <h5 class="mb-3">Recuperar <br>documento</h5>
+                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
+                            Aquí usted podrá recuperar una copia de su documento, siempre y cuanto este haya sido pagado por internet.
+                        </p>
+                    
+                        <a href="#" 
+                        class="btn btn-primary">Recuperar Documento</a>
+                    </div>
+                </div>
+
+                <!-- Recuperar por ROL -->
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
+                    <div class="w-100 mx-auto border rounded shadow-sm p-3 text-center h-100">
+                        <i class="fa fa-clock" style="font-size: 40px;"></i>
+                        <h5 class="mb-3">Consultar horas <br> en línea</h5>
+                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
+                            Aquí podrá consultar las horas que ha reservado para la realización de trámites en nuestro municipio
+                        </p>
+
+                        <a href="#" 
+                        class="btn btn-primary">Consultar Horas</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+
+        <div class="container my-5">
+            <div class="row align-items-center justify-content-center  text-md-start">
+                <!-- Información de contacto -->
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="contact">
+                        <h3>Ilustre Municipalidad de Valparaíso</h3>
+                        <div>Av. Argentina #864</div>
+                        <div><b>+56 32</b> 293 9000</div>
+                        <div><b>+56 32</b> 293 9100</div>
+                        <div>info@munivalpo.cl</div>
+                    </div>
+                </div>
+
+                <!-- Logo -->
+                <div class="col-md-6 d-none d-md-flex justify-content-center justify-content-md-end">
+                    <img src="assets/img/logo_transición2024_colores.png" 
+                        alt="logo" 
+                        class="img-fluid" 
+                        style="max-width: 120px; height: auto;">
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+  
+    </main>
+
 
 </asp:Content>
