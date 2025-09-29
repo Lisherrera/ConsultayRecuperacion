@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%: Page.Title %> | YoPagoenValpo</title>
+    <title>YoPagoenValpo</title>
     <meta name="description" content="Pague sus patentes en línea. Ingrese su RUT y realice el pago de forma simple y segura." />
 
     <!-- Fuentes -->
