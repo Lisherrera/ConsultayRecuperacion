@@ -153,6 +153,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\css\main.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="recuperar-documento.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -212,6 +213,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="recuperar-documento.aspx.designer.vb">
+      <DependentUpon>recuperar-documento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recuperar-documento.aspx.vb">
+      <DependentUpon>recuperar-documento.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
