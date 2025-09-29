@@ -14,27 +14,32 @@
                     <div class="col-md-12">
                         <h5>Aseo Extraordinario</h5>
                     </div>
-                    <div>
-                        <table class="table table-striped" cellspacing="0" cellpadding="4"  id="ctl00_MainContent_GridView2" style="color:#333333;border-collapse:collapse;">
-                            <tr style="color:rgb(43, 43, 145);font-weight:bold;">
-                                <th scope="col">Folio</th>
-                                <th scope="col">Rut</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Fecha Pago</th>
-                                <th scope="col">Total Pago</th>
-                                <th scope="col">&nbsp;</th>
-                            </tr>
-                            <tr style="color:#333333;background-color:#F7F6F3;">
-                                <td>11564729</td>
-                                <td>12495843-5</td>
-                                <td>Roberto Humberto</td>
-                                <td>12-09-2020 14:08:37</td>
-                                <td>$45.000</td>
-                                <td><a href="https://www.yopagoenvalpo.cl/aseo/Aseo/comprobante_pago?folio=8677411873837" target="_blank">Ver Comprobante</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None" DataSourceID="SqlDataSource4" DataKeyNames="NumeroArriendo,RUT">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
+                            <asp:BoundField DataField="RUT" HeaderText="Rut" ReadOnly="True" SortExpression="RUT" />
+                            <asp:BoundField DataField="NOMBRES" HeaderText="Nombres" SortExpression="NOMBRES" />
+                            <asp:BoundField DataField="fecha_pago" DataFormatString="{0:d}" HeaderText="Fec.Pago" SortExpression="fecha_pago" />
+                            <asp:BoundField DataField="totalpago" DataFormatString="{0:c0}" HeaderText="Total" SortExpression="totalpago" />
+                            <asp:HyperLinkField DataNavigateUrlFields="folio" DataNavigateUrlFormatString="http://pagos.munivalpo.cl/aseo_ext/comprobante-pago.aspx?folio={0}" Text="Ver Documento" Target="_blank" />
+                        </Columns>
+                        <EditRowStyle BackColor="#999999" />
+                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>" SelectCommand="SELECT DISTINCT folio, totalpago, fecha_pago, NumeroArriendo, RUT, NOMBRES FROM vista_pago_aseo_ext WHERE (RUT = @rut) ORDER BY folio DESC">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="rut" SessionField="rut" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                     <br>
                 </div>
             </div>
