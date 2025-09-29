@@ -1,0 +1,99 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="Consulta.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%: Page.Title %> | YoPagoenValpo</title>
+    <meta name="description" content="Pague sus patentes en línea. Ingrese su RUT y realice el pago de forma simple y segura." />
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link href="Assets/CSS/main.css" rel="stylesheet" />
+    <link href="Assets/CSS/new.css" rel="stylesheet" />
+    <link href="Assets/CSS/vendor/aos.css" rel="stylesheet" />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Path="Assets/JS/vendor/aos.js" />
+                <asp:ScriptReference Path="Assets/JS/vendor/popper.min.js" />
+                <asp:ScriptReference Path="Assets/JS/vendor/share.js" />
+                <asp:ScriptReference Path="Assets/JS/functions.js" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!-- HEADER -->
+        <header class="top" data-aos="fade-down">
+            <div class="wrap">
+                <div class="top__left">
+                    <h4 class="top__title">CONSULTAS Y RECUPERACION DE DOCUMENTOS EN LINEA</h4>
+                    <span class="top__pill">Consulte por deudas y recupere documentos digitales</span>
+                </div>
+                <img src="Assets/Img/logo-muni-valparaiso.png" alt="Municipalidad de Valparaíso" class="top__logo" />
+            </div>
+        </header>
+
+        <!-- CONTENIDO DE CADA PÁGINA -->
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container my-5">
+                <div class="row align-items-center justify-content-center text-md-start">
+                    <!-- Información de contacto -->
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="contact">
+                            <h3>Ilustre Municipalidad de Valparaíso</h3>
+                            <div>Av. Argentina #864</div>
+                            <div><b>+56 32</b> 293 9000</div>
+                            <div><b>+56 32</b> 293 9100</div>
+                            <div>info@munivalpo.cl</div>
+                        </div>
+                    </div>
+
+                    <!-- Logo -->
+                    <div class="col-md-6 d-none d-md-flex justify-content-center justify-content-md-end">
+                        <img src="Assets/Img/logo_transición2024_colores.png" alt="logo" class="img-fluid" style="max-width: 120px; height: auto;" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts al final del body -->
+        <script src="Assets/JS/vendor/jquery.min.js"></script>
+        <script src="Assets/JS/vendor/popper.min.js"></script>
+        <script src="Assets/JS/vendor/bootstrap.min.js"></script>
+        <script src="Assets/JS/vendor/aos.js"></script>
+        <script src="Assets/JS/vendor/share.js"></script>
+        <script src="Assets/JS/functions.js"></script>
+
+        <noscript>
+            <style>
+                *[data-aos] { display: block !important; opacity: 1 !important; visibility: visible !important; }
+            </style>
+        </noscript>
+
+        <script>
+            AOS.init({ duration: 700 });
+            $('.navbar-nav>li>a').on('click', function () { $('.navbar-collapse').collapse('hide'); });
+            $(function () { $('[data-toggle="popover"]').popover(); });
+            $(function () { $('[data-toggle="tooltip"]').tooltip(); });
+        </script>
+    </form>
+</body>
+</html>
