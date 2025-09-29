@@ -157,6 +157,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\css\main.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="recuperacion_permisoC.aspx" />
     <Content Include="recuperar-documento.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -245,6 +246,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="recuperacion_permisoC.aspx.designer.vb">
+      <DependentUpon>recuperacion_permisoC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recuperacion_permisoC.aspx.vb">
+      <DependentUpon>recuperacion_permisoC.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="recuperar-documento.aspx.designer.vb">
       <DependentUpon>recuperar-documento.aspx</DependentUpon>
