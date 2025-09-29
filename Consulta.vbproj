@@ -157,6 +157,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\css\main.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="recuperacion_patente.aspx" />
     <Content Include="recuperacion_permisoC.aspx" />
     <Content Include="recuperar-documento.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -246,6 +247,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="recuperacion_patente.aspx.designer.vb">
+      <DependentUpon>recuperacion_patente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recuperacion_patente.aspx.vb">
+      <DependentUpon>recuperacion_patente.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="recuperacion_permisoC.aspx.designer.vb">
       <DependentUpon>recuperacion_permisoC.aspx</DependentUpon>
