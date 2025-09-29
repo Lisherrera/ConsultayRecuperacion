@@ -158,6 +158,7 @@
     <Content Include="Assets\css\main.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="recuperacion_aseo.aspx" />
+    <Content Include="recuperacion_convenios.aspx" />
     <Content Include="recuperacion_patente.aspx" />
     <Content Include="recuperacion_permisoC.aspx" />
     <Content Include="recuperar-documento.aspx" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="recuperacion_aseo.aspx.vb">
       <DependentUpon>recuperacion_aseo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="recuperacion_convenios.aspx.designer.vb">
+      <DependentUpon>recuperacion_convenios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recuperacion_convenios.aspx.vb">
+      <DependentUpon>recuperacion_convenios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="recuperacion_patente.aspx.designer.vb">
