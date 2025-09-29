@@ -55,28 +55,6 @@
             </div>
         </div>
 
-        <div class="container my-5">
-            <div class="row align-items-center justify-content-center  text-md-start">
-                <!-- Información de contacto -->
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="contact">
-                        <h3>Ilustre Municipalidad de Valparaíso</h3>
-                        <div>Av. Argentina #864</div>
-                        <div><b>+56 32</b> 293 9000</div>
-                        <div><b>+56 32</b> 293 9100</div>
-                        <div>info@munivalpo.cl</div>
-                    </div>
-                </div>
-
-                <!-- Logo -->
-                <div class="col-md-6 d-none d-md-flex justify-content-center justify-content-md-end">
-                    <img src="assets/img/logo_transición2024_colores.png" 
-                        alt="logo" 
-                        class="img-fluid" 
-                        style="max-width: 120px; height: auto;">
-                </div>
-            </div>
-        </div>
   
     </main>
 
