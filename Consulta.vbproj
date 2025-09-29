@@ -146,6 +146,7 @@
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
     <Content Include="consulta-deuda.aspx" />
+    <Content Include="consultar-hora.aspx" />
     <Content Include="consulta_multas.aspx" />
     <Content Include="consulta_rol_aseo.aspx" />
     <Content Include="Default.aspx" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="consulta-deuda.aspx.vb">
       <DependentUpon>consulta-deuda.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="consultar-hora.aspx.designer.vb">
+      <DependentUpon>consultar-hora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consultar-hora.aspx.vb">
+      <DependentUpon>consultar-hora.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="consulta_multas.aspx.designer.vb">
