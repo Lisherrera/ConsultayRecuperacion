@@ -23,8 +23,7 @@
                             <span id="ctl00_MainContent_ctl00" style="color: red; visibility: hidden;">Rut no válido</span>
                         </div>
 
-                        <a href="#" 
-                        class="btn btn-primary"> Consultar</a>
+                        <a href="#" class="btn btn-primary"> Consultar</a>
                     </div>
                 </div>
                 </div>
