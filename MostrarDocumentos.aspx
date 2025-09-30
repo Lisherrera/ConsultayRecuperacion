@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MostrarDocumentos.aspx.vb" Inherits="Consulta._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -23,7 +23,7 @@
                     <span id="ctl00_MainContent_lbl_rut">00000000000</span>
                     <br>
                 </div>
-
+                .
                 <div class="col-md-10" style="padding-top: 25px;">
                     <span style="color: red; display: inline-flex; align-items: center; gap: 0.3em;">
                         <svg class="svg-inline--fa fa-exclamation-triangle" 
@@ -51,7 +51,7 @@
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus permisos de circulación pagados en línea.</p>
                             <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
-                            <a href="https://localhost:44333/recuperacion_permisoC.aspx" class="btn btn-primary">Mostrar Documentos</a>
+                            <a href="https://localhost:44333/RecuperacionCirculacion.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus patentes municipales pagadas en línea.</p>
                             <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
-                            <a href="https://localhost:44333/recuperacion_patente.aspx" class="btn btn-primary ">Mostrar Documentos</a>
+                            <a href="https://localhost:44333/RecuperacionPatente.aspx" class="btn btn-primary ">Mostrar Documentos</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus pagos de aseo extraordinario en línea.</p>
                             <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
-                            <a href="https://localhost:44333/recuperacion_aseo.aspx" class="btn btn-primary">Mostrar Documentos</a>
+                            <a href="https://localhost:44333/RecuperacionAseo.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus convenios de pago realizados en línea.</p>
                             <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
-                            <a href="https://localhost:44333/recuperacion_convenios.aspx" class="btn btn-primary">Mostrar Documentos</a>
+                            <a href="https://localhost:44333/RecuperacionConvenio.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar otros pagos realizados en línea.</p>
                             <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
-                            <a href="https://localhost:44333/recuperacion_otros.aspx" class="btn btn-primary">Mostrar Documentos</a>
+                            <a href="https://localhost:44333/RecuperacionOtros.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
                 </div>

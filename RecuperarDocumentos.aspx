@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="RecuperarDocumentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -10,7 +10,7 @@
                     <p>Si usted pagó su documento de manera online, puede recuperarlo las veces que quiera y sin costo.</p>
                 </div>
 
-                <!-- Recuperar por rut -->
+               <!-- Recuperar por rut -->
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
                     <div class="w-100 mx-auto border rounded shadow-sm p-3 text-start h-100">
                         <h5 class="mb-3">Recuperar documento por Rut</h5>
@@ -27,17 +27,32 @@
                         </ul>
 
                         <div class="mt-3 text-start">
-                            <label for="rut" class="form-label fs-6" 
+                            <label for="txtRut" class="form-label fs-6" 
                                 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                                 Ingrese su rut:
                             </label>
-                            <input type="text" id="rut" class="form-control form-control-sm mb-3" maxlength="12">
-                            <span id="ctl00_MainContent_ctl00" style="color: red; visibility: hidden;">Rut no válido</span>
+                            <asp:TextBox ID="txtRut" runat="server" CssClass="form-control form-control-sm mb-3" MaxLength="12" placeholder="1111111-1"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvRut" runat="server"
+                                ControlToValidate="txtRut"
+                                ErrorMessage="Rut es obligatorio"
+                                ForeColor="Red"
+                                Display="Dynamic"
+                                SetFocusOnError="True">
+                            </asp:RequiredFieldValidator>
                         </div>
 
-                        <a href="#" 
-                        class="btn btn-primary">Recuperar Documento</a>
+                        <asp:Button ID="btnRecuperar" runat="server" Text="Recuperar Documento" CssClass="btn btn-primary" OnClick="btnRecuperar_Click" />
+
                     </div>
+                    <!-- Código VB inline -->
+                    <script runat="server">
+                        Protected Sub btnRecuperar_Click(sender As Object, e As EventArgs)
+                            If Page.IsValid Then
+                                Session("rutUsuario") = txtRut.Text.Trim()
+                                Response.Redirect("MostrarDocumentos.aspx")
+                            End If
+                        End Sub
+                    </script>
                 </div>
 
                 <!-- Recuperar por Placa patente -->
@@ -66,8 +81,7 @@
                             <br>
                         </div>
 
-                        <a href="#" 
-                        class="btn btn-primary">Recuperar Documento</a>
+                        <a href="https://localhost:44333/ConsultaMultas.aspx" class="btn btn-primary">Recuperar Documento</a>
                     </div>
                 </div>
 
@@ -94,8 +108,7 @@
                             <br>
                         </div>
 
-                        <a href="#" 
-                        class="btn btn-primary">Recuperar Documento</a>
+                        <a href="https://localhost:44333/ConsultaAseoRol.aspx" class="btn btn-primary">Recuperar Documento</a>
                     </div>
                 </div>
             </div>

@@ -145,11 +145,11 @@
     <Content Include="Assets\js\vendor\popper.min.js" />
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
-    <Content Include="consulta-deuda.aspx" />
-    <Content Include="consultar-hora.aspx" />
-    <Content Include="consulta_multas.aspx" />
-    <Content Include="consulta_rol_aseo.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="ConsultaDeuda.aspx" />
+    <Content Include="ConsultaHora.aspx" />
+    <Content Include="ConsultaMultas.aspx" />
+    <Content Include="ConsultaAseoRol.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -157,12 +157,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\css\main.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="recuperacion_aseo.aspx" />
-    <Content Include="recuperacion_convenios.aspx" />
-    <Content Include="recuperacion_otros.aspx" />
-    <Content Include="recuperacion_patente.aspx" />
-    <Content Include="recuperacion_permisoC.aspx" />
-    <Content Include="recuperar-documento.aspx" />
+    <Content Include="RecuperacionAseo.aspx" />
+    <Content Include="RecuperacionConvenio.aspx" />
+    <Content Include="RecuperacionOtros.aspx" />
+    <Content Include="RecuperacionPatente.aspx" />
+    <Content Include="RecuperacionCirculacion.aspx" />
+    <Content Include="MostrarDocumentos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -191,46 +191,46 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="tipo-documento.aspx" />
+    <Content Include="RecuperarDocumentos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
-    <Compile Include="consulta-deuda.aspx.designer.vb">
-      <DependentUpon>consulta-deuda.aspx</DependentUpon>
+    <Compile Include="ConsultaDeuda.aspx.designer.vb">
+      <DependentUpon>ConsultaDeuda.aspx</DependentUpon>
     </Compile>
-    <Compile Include="consulta-deuda.aspx.vb">
-      <DependentUpon>consulta-deuda.aspx</DependentUpon>
+    <Compile Include="ConsultaDeuda.aspx.vb">
+      <DependentUpon>ConsultaDeuda.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="consultar-hora.aspx.designer.vb">
-      <DependentUpon>consultar-hora.aspx</DependentUpon>
+    <Compile Include="ConsultaHora.aspx.designer.vb">
+      <DependentUpon>ConsultaHora.aspx</DependentUpon>
     </Compile>
-    <Compile Include="consultar-hora.aspx.vb">
-      <DependentUpon>consultar-hora.aspx</DependentUpon>
+    <Compile Include="ConsultaHora.aspx.vb">
+      <DependentUpon>ConsultaHora.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="consulta_multas.aspx.designer.vb">
-      <DependentUpon>consulta_multas.aspx</DependentUpon>
+    <Compile Include="ConsultaMultas.aspx.designer.vb">
+      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="consulta_multas.aspx.vb">
-      <DependentUpon>consulta_multas.aspx</DependentUpon>
+    <Compile Include="ConsultaMultas.aspx.vb">
+      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="consulta_rol_aseo.aspx.designer.vb">
-      <DependentUpon>consulta_rol_aseo.aspx</DependentUpon>
+    <Compile Include="ConsultaAseoRol.aspx.designer.vb">
+      <DependentUpon>ConsultaAseoRol.aspx</DependentUpon>
     </Compile>
-    <Compile Include="consulta_rol_aseo.aspx.vb">
-      <DependentUpon>consulta_rol_aseo.aspx</DependentUpon>
+    <Compile Include="ConsultaAseoRol.aspx.vb">
+      <DependentUpon>ConsultaAseoRol.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.vb">
+    <Compile Include="HomePage.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.vb">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="HomePage.aspx.designer.vb">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -251,46 +251,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="recuperacion_aseo.aspx.designer.vb">
-      <DependentUpon>recuperacion_aseo.aspx</DependentUpon>
+    <Compile Include="RecuperacionAseo.aspx.designer.vb">
+      <DependentUpon>RecuperacionAseo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperacion_aseo.aspx.vb">
-      <DependentUpon>recuperacion_aseo.aspx</DependentUpon>
+    <Compile Include="RecuperacionAseo.aspx.vb">
+      <DependentUpon>RecuperacionAseo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="recuperacion_convenios.aspx.designer.vb">
-      <DependentUpon>recuperacion_convenios.aspx</DependentUpon>
+    <Compile Include="RecuperacionConvenio.aspx.designer.vb">
+      <DependentUpon>RecuperacionConvenio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperacion_convenios.aspx.vb">
-      <DependentUpon>recuperacion_convenios.aspx</DependentUpon>
+    <Compile Include="RecuperacionConvenio.aspx.vb">
+      <DependentUpon>RecuperacionConvenio.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="recuperacion_otros.aspx.designer.vb">
-      <DependentUpon>recuperacion_otros.aspx</DependentUpon>
+    <Compile Include="RecuperacionOtros.aspx.designer.vb">
+      <DependentUpon>RecuperacionOtros.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperacion_otros.aspx.vb">
-      <DependentUpon>recuperacion_otros.aspx</DependentUpon>
+    <Compile Include="RecuperacionOtros.aspx.vb">
+      <DependentUpon>RecuperacionOtros.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="recuperacion_patente.aspx.designer.vb">
-      <DependentUpon>recuperacion_patente.aspx</DependentUpon>
+    <Compile Include="RecuperacionPatente.aspx.designer.vb">
+      <DependentUpon>RecuperacionPatente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperacion_patente.aspx.vb">
-      <DependentUpon>recuperacion_patente.aspx</DependentUpon>
+    <Compile Include="RecuperacionPatente.aspx.vb">
+      <DependentUpon>RecuperacionPatente.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="recuperacion_permisoC.aspx.designer.vb">
-      <DependentUpon>recuperacion_permisoC.aspx</DependentUpon>
+    <Compile Include="RecuperacionCirculacion.aspx.designer.vb">
+      <DependentUpon>RecuperacionCirculacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperacion_permisoC.aspx.vb">
-      <DependentUpon>recuperacion_permisoC.aspx</DependentUpon>
+    <Compile Include="RecuperacionCirculacion.aspx.vb">
+      <DependentUpon>RecuperacionCirculacion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="recuperar-documento.aspx.designer.vb">
-      <DependentUpon>recuperar-documento.aspx</DependentUpon>
+    <Compile Include="MostrarDocumentos.aspx.designer.vb">
+      <DependentUpon>MostrarDocumentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="recuperar-documento.aspx.vb">
-      <DependentUpon>recuperar-documento.aspx</DependentUpon>
+    <Compile Include="MostrarDocumentos.aspx.vb">
+      <DependentUpon>MostrarDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
@@ -300,11 +300,11 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tipo-documento.aspx.designer.vb">
-      <DependentUpon>tipo-documento.aspx</DependentUpon>
+    <Compile Include="RecuperarDocumentos.aspx.designer.vb">
+      <DependentUpon>RecuperarDocumentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="tipo-documento.aspx.vb">
-      <DependentUpon>tipo-documento.aspx</DependentUpon>
+    <Compile Include="RecuperarDocumentos.aspx.vb">
+      <DependentUpon>RecuperarDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
