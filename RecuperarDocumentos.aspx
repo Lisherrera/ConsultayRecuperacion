@@ -1,4 +1,4 @@
-﻿<%@ Page Title="RecuperarDocumentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" %>
+﻿<%@ Page Title="RecuperarDocumentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperarDocumentos.aspx.vb" Inherits="Consulta.RecuperarDocumentos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -10,78 +10,51 @@
                     <p>Si usted pagó su documento de manera online, puede recuperarlo las veces que quiera y sin costo.</p>
                 </div>
 
-               <!-- Recuperar por rut -->
+               <!-- Recuperar por Rut -->
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
                     <div class="w-100 mx-auto border rounded shadow-sm p-3 text-start h-100">
                         <h5 class="mb-3">Recuperar documento por Rut</h5>
-                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
-                            Digitando su rut usted podrá recuperar los siguientes documentos:
-                        </p>
+                        <p>Ingrese su RUT para recuperar los documentos que ha pagado en línea:</p>
 
-                        <ul class="list-unstyled">
-                            <li><i class="fa fa-check-square"></i> Patente Comercial</li>
-                            <li><i class="fa fa-check-square"></i> Permiso de circulación</li>
-                            <li><i class="fa fa-check-square"></i> Aseo extraordinario</li>
-                            <li><i class="fa fa-check-square"></i> Convenios de pago</li>
-                            <li><i class="fa fa-check-square"></i> Otros pagos</li>
-                        </ul>
+                        <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblMensajeRut" runat="server" ForeColor="Red"></asp:Label>
 
-                        <div class="mt-3 text-start">
-                            <label for="txtRut" class="form-label fs-6" 
-                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                                Ingrese su rut:
-                            </label>
-                            <asp:TextBox ID="txtRut" runat="server" CssClass="form-control form-control-sm mb-3" MaxLength="12" placeholder="1111111-1"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvRut" runat="server"
-                                ControlToValidate="txtRut"
-                                ErrorMessage="Rut es obligatorio"
-                                ForeColor="Red"
-                                Display="Dynamic"
-                                SetFocusOnError="True">
-                            </asp:RequiredFieldValidator>
-                        </div>
 
-                        <asp:Button ID="btnRecuperar" runat="server" Text="Recuperar Documento" CssClass="btn btn-primary" OnClick="btnRecuperar_Click" />
+                        <label for="txtRut" class="form-label fs-6">Ingrese RUT:</label>
+                        <asp:TextBox ID="txtRut" runat="server" CssClass="form-control form-control-sm mb-3"
+                                     MaxLength="12" placeholder="11111111-1"></asp:TextBox>
 
+                        <asp:Button ID="btnRecuperarRut" runat="server" Text="Recuperar Documento"
+                                    CssClass="btn btn-primary" OnClick="btnRecuperarRut_Click" />
                     </div>
-                    <!-- Código VB inline -->
-                    <script runat="server">
-                        Protected Sub btnRecuperar_Click(sender As Object, e As EventArgs)
-                            If Page.IsValid Then
-                                Session("rutUsuario") = txtRut.Text.Trim()
-                                Response.Redirect("MostrarDocumentos.aspx")
-                            End If
-                        End Sub
-                    </script>
                 </div>
 
-                <!-- Recuperar por Placa patente -->
+                <!-- Recuperar por patente -->
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
                     <div class="w-100 mx-auto border rounded shadow-sm p-3 text-start h-100">
                         <h5 class="mb-3">Recuperar documento por Placa Patente</h5>
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
-                            Al ingresar la placa patente de su vehíclo, usted podrá recuperar:
+                            Al ingresar la placa patente de su vehículo, usted podrá recuperar:
                         </p>
 
                         <div class="mb-5">
                             <ul class="list-unstyled">
                                 <li><i class="fa fa-check-square"></i> Multas JPL</li>
-                                <br>
-                                <br>
-                                <br>
                             </ul>
                         </div>
-                        
+
                         <div class="mt-3 text-start">
-                            <label for="rut" class="form-label fs-6" 
-                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                            <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3"></asp:Label>
+
+                            <label for="txtPatente" class="form-label fs-6">
                                 Ingrese patente:
                             </label>
-                            <input type="text" id="rut" placeholder="AA1234 o AABB12" class="form-control form-control-sm mb-3" maxlength="6" >
-                            <br>
+                            <asp:TextBox ID="txtPatente" runat="server" CssClass="form-control form-control-sm mb-3"
+                                         MaxLength="6" placeholder="AA1234 o AABB12"></asp:TextBox>
                         </div>
 
-                        <a href="https://localhost:44333/ConsultaMultas.aspx" class="btn btn-primary">Recuperar Documento</a>
+                        <asp:Button ID="btnRecuperarPatente" runat="server" Text="Recuperar Documento"
+                                    CssClass="btn btn-primary" OnClick="btnRecuperarPatente_Click" />
                     </div>
                 </div>
 
@@ -98,19 +71,24 @@
                         </ul>
 
                         <div class="mt-3 text-start">
-                            <label for="rut" class="form-label fs-6" 
-                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                                Ingrese Rol:
-                            </label>
-                            <input type="text" id="rol"  placeholder="1234" class="form-control form-control-sm mb-3" maxlength="5" >
-                            <p>-</p>
-                            <input type="text" id="rol" placeholder="5678" class="form-control form-control-sm mb-3" maxlength="5">
-                            <br>
+                            <asp:Label ID="lblMensajeRol" runat="server" ForeColor="Red"></asp:Label>
+
+                            <label for="txtRol1" class="form-label fs-6">Ingrese Rol:</label>
+                            <div class="d-flex align-items-center">
+                                <asp:TextBox ID="txtRol1" runat="server" CssClass="form-control form-control-sm me-2"
+                                             MaxLength="5" placeholder="1234"></asp:TextBox>
+                                <span class="me-2">-</span>
+                                <asp:TextBox ID="txtRol2" runat="server" CssClass="form-control form-control-sm"
+                                             MaxLength="5" placeholder="5678"></asp:TextBox>
+                            </div>
                         </div>
 
-                        <a href="https://localhost:44333/ConsultaAseoRol.aspx" class="btn btn-primary">Recuperar Documento</a>
+                        <asp:Button ID="btnRecuperarRol" runat="server" Text="Recuperar Documento"
+                                    CssClass="btn btn-primary mt-3" OnClick="btnRecuperarRol_Click" />
                     </div>
                 </div>
+
+
             </div>
         </div>
 

@@ -11,7 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default
+Partial Public Class RecuperarDocumentos
+
+    '''<summary>
+    '''Control Label1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control lblMensajeRut.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensajeRut As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txtRut.
@@ -23,20 +41,74 @@ Partial Public Class _Default
     Protected WithEvents txtRut As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control rfvRut.
+    '''Control btnRecuperarRut.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents rfvRut As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents btnRecuperarRut As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control btnRecuperar.
+    '''Control lblMensaje.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnRecuperar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtPatente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtPatente As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control btnRecuperarPatente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnRecuperarPatente As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control lblMensajeRol.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensajeRol As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtRol1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtRol1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control txtRol2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtRol2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control btnRecuperarRol.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnRecuperarRol As Global.System.Web.UI.WebControls.Button
 End Class

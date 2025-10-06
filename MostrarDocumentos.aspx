@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MostrarDocumentos.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MostrarDocumentos.aspx.vb" Inherits="Consulta.MostrarDocumentos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -17,10 +17,10 @@
             <div class="col-md-12">
                 <div class="col-auto">
                     <b>Nombres:</b>
-                    <span id="ctl00_MainContent_lbl_nombres">CARLOS  ROBERTO  GARIN DONOSO</span>
+                    <asp:Label ID="lblNombres" runat="server" Text=""></asp:Label>
                     <br>
                     <b>Rut:</b>
-                    <span id="ctl00_MainContent_lbl_rut">00000000000</span>
+                    <asp:Label ID="lblRut" runat="server" Text=""></asp:Label>
                     <br>
                 </div>
                 .
