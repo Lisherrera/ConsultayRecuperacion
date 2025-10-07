@@ -17,13 +17,13 @@
                         <p>Ingrese su RUT para recuperar los documentos que ha pagado en línea:</p>
 
                         <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:Label ID="lblMensajeRut" runat="server" ForeColor="Red"></asp:Label>
+                        
 
 
                         <label for="txtRut" class="form-label fs-6">Ingrese RUT:</label>
                         <asp:TextBox ID="txtRut" runat="server" CssClass="form-control form-control-sm mb-3"
                                      MaxLength="12" placeholder="11111111-1"></asp:TextBox>
-
+                        <asp:Label ID="lblMensajeRut" runat="server" ForeColor="Red"></asp:Label>
                         <asp:Button ID="btnRecuperarRut" runat="server" Text="Recuperar Documento"
                                     CssClass="btn btn-primary" OnClick="btnRecuperarRut_Click" />
                     </div>
@@ -44,15 +44,13 @@
                         </div>
 
                         <div class="mt-3 text-start">
-                            <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3"></asp:Label>
-
                             <label for="txtPatente" class="form-label fs-6">
                                 Ingrese patente:
                             </label>
                             <asp:TextBox ID="txtPatente" runat="server" CssClass="form-control form-control-sm mb-3"
                                          MaxLength="6" placeholder="AA1234 o AABB12"></asp:TextBox>
                         </div>
-
+                        <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3"></asp:Label>
                         <asp:Button ID="btnRecuperarPatente" runat="server" Text="Recuperar Documento"
                                     CssClass="btn btn-primary" OnClick="btnRecuperarPatente_Click" />
                     </div>
@@ -71,8 +69,6 @@
                         </ul>
 
                         <div class="mt-3 text-start">
-                            <asp:Label ID="lblMensajeRol" runat="server" ForeColor="Red"></asp:Label>
-
                             <label for="txtRol1" class="form-label fs-6">Ingrese Rol:</label>
                             <div class="d-flex align-items-center">
                                 <asp:TextBox ID="txtRol1" runat="server" CssClass="form-control form-control-sm me-2"
@@ -82,7 +78,7 @@
                                              MaxLength="5" placeholder="5678"></asp:TextBox>
                             </div>
                         </div>
-
+                        <asp:Label ID="lblMensajeRol" runat="server" ForeColor="Red"></asp:Label>
                         <asp:Button ID="btnRecuperarRol" runat="server" Text="Recuperar Documento"
                                     CssClass="btn btn-primary mt-3" OnClick="btnRecuperarRol_Click" />
                     </div>

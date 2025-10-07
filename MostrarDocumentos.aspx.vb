@@ -12,8 +12,8 @@ Partial Class MostrarDocumentos
                 Dim rut As String = Session("rutUsuario").ToString().Trim()
                 CargarDatosUsuario(rut)
             Else
-                lblNombres.Text = "No se ha ingresado un RUT."
-                lblRut.Text = ""
+                lblNombres.Text = "Sin Nombre."
+                lblRut.Text = "No se ha ingresado un RUT."
             End If
         End If
     End Sub
@@ -24,7 +24,7 @@ Partial Class MostrarDocumentos
 
         Using conn As New SqlConnection(connStr)
             ' Ajusta "Nombre_Cliente" y "RUT_Cliente" según tu tabla real
-            Dim query As String = "SELECT Rut, Nombre FROM MAESTRO_CONTRIBUYENTE WHERE RUT = @Rut"
+            Dim query As String = "SELECT Rut, Nombre FROM ..... WHERE RUT = @Rut"
 
             Using cmd As New SqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@Rut", rut)
