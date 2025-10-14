@@ -1,4 +1,5 @@
-﻿Partial Class RecuperarDocumentos
+﻿
+Partial Class RecuperarDocumentos
     Inherits System.Web.UI.Page
 
     ' Botón para recuperar documentos por patente
@@ -25,7 +26,7 @@
         End If
 
         ' Guardar RUT en sesión y redirigir a la página de consulta de documentos por RUT
-        Session("rutUsuario") = rut
+        Session("rut") = rut
         Response.Redirect("MostrarDocumentos.aspx")
     End Sub
 
@@ -35,13 +36,17 @@
         Dim rol2 As String = txtRol2.Text.Trim()
 
         If String.IsNullOrEmpty(rol1) OrElse String.IsNullOrEmpty(rol2) Then
-            lblMensajeRol.Text = "Debe ingresar número de Rol."
+            lblMensajeRol.Text = "Debe ingresar número de Rol completo."
             Return
         End If
 
-        ' Guardar rol en sesión y redirigir a la página de consulta
+        ' Concatenamos los dos cuadros para formar el rol completo de 10 dígitos
+        Dim rolCompleto As String = rol1 & rol2
+        Session("rolPropiedad") = rolCompleto
+
         Response.Redirect("ConsultaAseoRol.aspx")
     End Sub
+
 
 End Class
 

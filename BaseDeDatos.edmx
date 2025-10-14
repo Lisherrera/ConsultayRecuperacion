@@ -1,0 +1,1184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ValparaisoBD.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_aseo_tbk' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_aseo_tbk">
+          <Key>
+            <PropertyRef Name="idsesion" />
+            <PropertyRef Name="ano" />
+            <PropertyRef Name="cuota" />
+            <PropertyRef Name="tbk_orden_de_compra" />
+            <PropertyRef Name="tbk_id_sesion" />
+          </Key>
+          <Property Name="Cont_Propietario" Type="varchar" MaxLength="200" />
+          <Property Name="tbk_num_tarjeta" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_venc_tarjeta" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_fec_autorizacion" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="datetime" />
+          <Property Name="tbk_total_pago" Type="int" />
+          <Property Name="idsesion" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="ano" Type="int" Nullable="false" />
+          <Property Name="cuota" Type="int" Nullable="false" />
+          <Property Name="valor" Type="int" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="tbk_tipo_pago" Type="nvarchar" MaxLength="2" />
+          <Property Name="tbk_codigo_autorizacion" Type="nvarchar" MaxLength="6" />
+          <Property Name="tbk_respuesta" Type="nvarchar" MaxLength="2" />
+          <Property Name="tbk_orden_de_compra" Type="nvarchar" MaxLength="61" Nullable="false" />
+          <Property Name="Total_Cuota" Type="int" />
+          <Property Name="Cont_Rut" Type="varchar" MaxLength="11" />
+          <Property Name="Cont_Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="250" />
+          <Property Name="enviado" Type="bit" />
+          <Property Name="tbk_id_sesion" Type="nvarchar" MaxLength="61" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_pago_aseo_ext' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_pago_aseo_ext">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="NumeroArriendo" />
+            <PropertyRef Name="RUT" />
+            <PropertyRef Name="periodo" />
+            <PropertyRef Name="idsesion" />
+          </Key>
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="rut_tes" Type="nvarchar" MaxLength="50" />
+          <Property Name="formulario" Type="int" />
+          <Property Name="folio" Type="int" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="cod_banco" Type="int" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="Correo" Type="varchar" MaxLength="60" />
+          <Property Name="ano_proceso" Type="smallint" Nullable="false" />
+          <Property Name="NumeroArriendo" Type="int" Nullable="false" />
+          <Property Name="RUT" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="idsesion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FechaVenci" Type="datetime" />
+          <Property Name="montoCargo" Type="int" />
+          <Property Name="estado" Type="nvarchar" MaxLength="250" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_pago_jpl' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_pago_jpl">
+          <Key>
+            <PropertyRef Name="id_multas" />
+          </Key>
+          <Property Name="id_session" Type="nvarchar" MaxLength="50" />
+          <Property Name="folio" Type="int" />
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" />
+          <Property Name="rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="monto_rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="detalle" Type="nvarchar" MaxLength="200" />
+          <Property Name="fecha_emision" Type="datetime" />
+          <Property Name="correo" Type="nvarchar" MaxLength="50" />
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="vencimiento" Type="datetime" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="resultado" Type="nvarchar" MaxLength="1" />
+          <Property Name="tipo_pago" Type="nvarchar" MaxLength="1" />
+          <Property Name="estado" Type="char" MaxLength="1" />
+          <Property Name="orden_ingreso" Type="nvarchar" MaxLength="50" />
+          <Property Name="url" Type="nvarchar" MaxLength="250" />
+          <Property Name="año" Type="int" />
+          <Property Name="num_parte" Type="int" />
+          <Property Name="juzgado" Type="nvarchar" MaxLength="50" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="rut_tes" Type="nvarchar" MaxLength="50" />
+          <Property Name="fecha_citacion" Type="nchar" MaxLength="8" />
+          <Property Name="estado_pago" Type="nvarchar" MaxLength="1" />
+          <Property Name="id_multas" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_pago_provisorias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_pago_provisorias">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="periodo" />
+            <PropertyRef Name="idsesion" />
+            <PropertyRef Name="NumeroArriendo" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="rut_tes" Type="nvarchar" MaxLength="50" />
+          <Property Name="formulario" Type="int" />
+          <Property Name="folio" Type="int" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="cod_banco" Type="int" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="ano_proceso" Type="smallint" Nullable="false" />
+          <Property Name="periodo" Type="smallint" Nullable="false" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="idsesion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FechaVenci" Type="datetime" />
+          <Property Name="montoCargo" Type="int" />
+          <Property Name="estado" Type="nvarchar" MaxLength="250" />
+          <Property Name="NumeroArriendo" Type="int" Nullable="false" />
+          <Property Name="RUT" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="Correo" Type="varchar" MaxLength="60" />
+          <Property Name="Direccion" Type="varchar" MaxLength="66" />
+          <Property Name="Ar_DESCRIPCION" Type="varchar" MaxLength="100" />
+          <Property Name="glosa" Type="nvarchar" MaxLength="150" />
+          <Property Name="MontoTotal" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.Vista_pagos_Convenio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_pagos_Convenio">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="n_convenio" />
+            <PropertyRef Name="cuota" />
+          </Key>
+          <Property Name="cod_banco" Type="int" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="ano_proceso" Type="smallint" Nullable="false" />
+          <Property Name="n_convenio" Type="smallint" Nullable="false" />
+          <Property Name="cuota" Type="smallint" Nullable="false" />
+          <Property Name="folio" Type="int" />
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="formulario" Type="int" />
+          <Property Name="status" Type="nvarchar" MaxLength="3" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="rut_completo" Type="varchar" MaxLength="11" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" />
+          <Property Name="estado" Type="nvarchar" MaxLength="250" />
+          <Property Name="Rol_Patente" Type="int" />
+          <Property Name="Rol_Aseo" Type="varchar" MaxLength="10" />
+          <Property Name="Placa" Type="varchar" MaxLength="9" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_pat_com_jc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_pat_com_jc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="ano" Type="int" />
+          <Property Name="semestre" Type="int" />
+          <Property Name="url" Type="nvarchar" MaxLength="500" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_session" Type="nvarchar" MaxLength="50" />
+          <Property Name="code" Type="nvarchar" MaxLength="6" />
+          <Property Name="msgdesc" Type="nvarchar" MaxLength="20" />
+          <Property Name="version" Type="int" />
+          <Property Name="fromaddress" Type="nvarchar" MaxLength="20" />
+          <Property Name="toaddress" Type="nvarchar" MaxLength="20" />
+          <Property Name="refaddress" Type="int" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="formulario" Type="int" />
+          <Property Name="folio" Type="int" />
+          <Property Name="vencimiento" Type="datetime" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="cod_banco" Type="int" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="estado" Type="char" MaxLength="1" />
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="id_agile" Type="int" />
+          <Property Name="validation_code_agile" Type="nvarchar" MaxLength="50" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="total_patente" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_patcom_tbk' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_patcom_tbk">
+          <Key>
+            <PropertyRef Name="id_transaccion" />
+            <PropertyRef Name="tbk_orden_de_compra" />
+          </Key>
+          <Property Name="id_transaccion" Type="int" Nullable="false" />
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="ano" Type="int" />
+          <Property Name="semestre" Type="int" />
+          <Property Name="url" Type="nvarchar" MaxLength="500" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_session" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_agile" Type="int" />
+          <Property Name="validation_code_agile" Type="nvarchar" MaxLength="50" />
+          <Property Name="tbk_num_tarjeta" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_venc_tarjeta" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_fec_autorizacion" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="datetime" />
+          <Property Name="tbk_total_pago" Type="int" />
+          <Property Name="tbk_tipo_pago" Type="nvarchar" MaxLength="2" />
+          <Property Name="tbk_codigo_autorizacion" Type="nvarchar" MaxLength="6" />
+          <Property Name="tbk_orden_de_compra" Type="nvarchar" MaxLength="61" Nullable="false" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="interes" Type="int" />
+          <Property Name="total_patente" Type="int" />
+          <Property Name="tbk_respuesta" Type="nvarchar" MaxLength="2" />
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="folio" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.vista_pcv_jc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vista_pcv_jc">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_transaccion" />
+          </Key>
+          <Property Name="folio" Type="int" />
+          <Property Name="totalpago" Type="nvarchar" MaxLength="12" />
+          <Property Name="estado" Type="char" MaxLength="1" />
+          <Property Name="patente" Type="nvarchar" MaxLength="150" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="idsesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="ano" Type="int" />
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="url" Type="nvarchar" MaxLength="500" />
+          <Property Name="poliza_seguro" Type="nvarchar" MaxLength="50" />
+          <Property Name="tipo_pago" Type="int" />
+          <Property Name="nom_banco" Type="nvarchar" MaxLength="30" />
+          <Property Name="idext" Type="nvarchar" MaxLength="20" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="permiso_imprimir" Type="bit" />
+          <Property Name="idoperacion" Type="nvarchar" MaxLength="16" />
+          <Property Name="idtransaccion" Type="nvarchar" MaxLength="16" />
+          <Property Name="id_transaccion" Type="int" Nullable="false" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="total_patente" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Valparaiso.dbo.Vista_pcv_transbank' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_pcv_transbank">
+          <Key>
+            <PropertyRef Name="tbk_orden_de_compra" />
+          </Key>
+          <Property Name="tbk_idsesion" Type="nvarchar" MaxLength="61" />
+          <Property Name="folio" Type="int" />
+          <Property Name="patente" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="poliza_seguro" Type="nvarchar" MaxLength="50" />
+          <Property Name="permiso_imprimir" Type="bit" />
+          <Property Name="tbk_total_pago" Type="int" />
+          <Property Name="url" Type="nvarchar" MaxLength="500" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="datetime" />
+          <Property Name="tbk_fec_autorizacion" Type="nvarchar" MaxLength="4" />
+          <Property Name="ano" Type="int" />
+          <Property Name="tipo_pago" Type="int" />
+          <Property Name="tbk_orden_de_compra" Type="nvarchar" MaxLength="61" Nullable="false" />
+          <Property Name="tbk_codigo_autorizacion" Type="nvarchar" MaxLength="6" />
+          <Property Name="tbk_tipo_pago" Type="nvarchar" MaxLength="2" />
+          <Property Name="tbk_respuesta" Type="nvarchar" MaxLength="2" />
+          <Property Name="rut" Type="nvarchar" MaxLength="50" />
+          <Property Name="tbk_num_tarjeta" Type="nvarchar" MaxLength="4" />
+          <Property Name="tbk_tokenws" Type="nvarchar" MaxLength="64" />
+          <Property Name="validation_code_agile" Type="nvarchar" MaxLength="50" />
+          <Property Name="ipc" Type="int" />
+          <Property Name="multa" Type="int" />
+          <Property Name="total_patente" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ValparaisoBDStoreContainer">
+          <EntitySet Name="vista_aseo_tbk" EntityType="Self.vista_aseo_tbk" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_aseo_tbk].[Cont_Propietario] AS [Cont_Propietario], 
+    [vista_aseo_tbk].[tbk_num_tarjeta] AS [tbk_num_tarjeta], 
+    [vista_aseo_tbk].[tbk_venc_tarjeta] AS [tbk_venc_tarjeta], 
+    [vista_aseo_tbk].[tbk_fec_autorizacion] AS [tbk_fec_autorizacion], 
+    [vista_aseo_tbk].[tbk_fec_hora_autorizacion] AS [tbk_fec_hora_autorizacion], 
+    [vista_aseo_tbk].[tbk_total_pago] AS [tbk_total_pago], 
+    [vista_aseo_tbk].[idsesion] AS [idsesion], 
+    [vista_aseo_tbk].[rol] AS [rol], 
+    [vista_aseo_tbk].[ano] AS [ano], 
+    [vista_aseo_tbk].[cuota] AS [cuota], 
+    [vista_aseo_tbk].[valor] AS [valor], 
+    [vista_aseo_tbk].[ipc] AS [ipc], 
+    [vista_aseo_tbk].[multa] AS [multa], 
+    [vista_aseo_tbk].[idext] AS [idext], 
+    [vista_aseo_tbk].[tbk_tipo_pago] AS [tbk_tipo_pago], 
+    [vista_aseo_tbk].[tbk_codigo_autorizacion] AS [tbk_codigo_autorizacion], 
+    [vista_aseo_tbk].[tbk_respuesta] AS [tbk_respuesta], 
+    [vista_aseo_tbk].[tbk_orden_de_compra] AS [tbk_orden_de_compra], 
+    [vista_aseo_tbk].[Total_Cuota] AS [Total_Cuota], 
+    [vista_aseo_tbk].[Cont_Rut] AS [Cont_Rut], 
+    [vista_aseo_tbk].[Cont_Direccion] AS [Cont_Direccion], 
+    [vista_aseo_tbk].[Email] AS [Email], 
+    [vista_aseo_tbk].[enviado] AS [enviado], 
+    [vista_aseo_tbk].[tbk_id_sesion] AS [tbk_id_sesion]
+    FROM [dbo].[vista_aseo_tbk] AS [vista_aseo_tbk]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_pago_aseo_ext" EntityType="Self.vista_pago_aseo_ext" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_pago_aseo_ext].[idext] AS [idext], 
+    [vista_pago_aseo_ext].[idoperacion] AS [idoperacion], 
+    [vista_pago_aseo_ext].[idtransaccion] AS [idtransaccion], 
+    [vista_pago_aseo_ext].[rut_tes] AS [rut_tes], 
+    [vista_pago_aseo_ext].[formulario] AS [formulario], 
+    [vista_pago_aseo_ext].[folio] AS [folio], 
+    [vista_pago_aseo_ext].[totalpago] AS [totalpago], 
+    [vista_pago_aseo_ext].[cod_banco] AS [cod_banco], 
+    [vista_pago_aseo_ext].[nom_banco] AS [nom_banco], 
+    [vista_pago_aseo_ext].[fecha_pago] AS [fecha_pago], 
+    [vista_pago_aseo_ext].[Correo] AS [Correo], 
+    [vista_pago_aseo_ext].[ano_proceso] AS [ano_proceso], 
+    [vista_pago_aseo_ext].[NumeroArriendo] AS [NumeroArriendo], 
+    [vista_pago_aseo_ext].[RUT] AS [RUT], 
+    [vista_pago_aseo_ext].[periodo] AS [periodo], 
+    [vista_pago_aseo_ext].[ipc] AS [ipc], 
+    [vista_pago_aseo_ext].[multa] AS [multa], 
+    [vista_pago_aseo_ext].[idsesion] AS [idsesion], 
+    [vista_pago_aseo_ext].[FechaVenci] AS [FechaVenci], 
+    [vista_pago_aseo_ext].[montoCargo] AS [montoCargo], 
+    [vista_pago_aseo_ext].[estado] AS [estado], 
+    [vista_pago_aseo_ext].[NOMBRES] AS [NOMBRES]
+    FROM [dbo].[vista_pago_aseo_ext] AS [vista_pago_aseo_ext]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_pago_jpl" EntityType="Self.vista_pago_jpl" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_pago_jpl].[id_session] AS [id_session], 
+    [vista_pago_jpl].[folio] AS [folio], 
+    [vista_pago_jpl].[rut] AS [rut], 
+    [vista_pago_jpl].[nombre] AS [nombre], 
+    [vista_pago_jpl].[rol] AS [rol], 
+    [vista_pago_jpl].[monto_rol] AS [monto_rol], 
+    [vista_pago_jpl].[detalle] AS [detalle], 
+    [vista_pago_jpl].[fecha_emision] AS [fecha_emision], 
+    [vista_pago_jpl].[correo] AS [correo], 
+    [vista_pago_jpl].[idext] AS [idext], 
+    [vista_pago_jpl].[idoperacion] AS [idoperacion], 
+    [vista_pago_jpl].[idtransaccion] AS [idtransaccion], 
+    [vista_pago_jpl].[vencimiento] AS [vencimiento], 
+    [vista_pago_jpl].[totalpago] AS [totalpago], 
+    [vista_pago_jpl].[nom_banco] AS [nom_banco], 
+    [vista_pago_jpl].[fecha_pago] AS [fecha_pago], 
+    [vista_pago_jpl].[resultado] AS [resultado], 
+    [vista_pago_jpl].[tipo_pago] AS [tipo_pago], 
+    [vista_pago_jpl].[estado] AS [estado], 
+    [vista_pago_jpl].[orden_ingreso] AS [orden_ingreso], 
+    [vista_pago_jpl].[url] AS [url], 
+    [vista_pago_jpl].[año] AS [año], 
+    [vista_pago_jpl].[num_parte] AS [num_parte], 
+    [vista_pago_jpl].[juzgado] AS [juzgado], 
+    [vista_pago_jpl].[datetime] AS [datetime], 
+    [vista_pago_jpl].[rut_tes] AS [rut_tes], 
+    [vista_pago_jpl].[fecha_citacion] AS [fecha_citacion], 
+    [vista_pago_jpl].[estado_pago] AS [estado_pago], 
+    [vista_pago_jpl].[id_multas] AS [id_multas]
+    FROM [dbo].[vista_pago_jpl] AS [vista_pago_jpl]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_pago_provisorias" EntityType="Self.vista_pago_provisorias" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_pago_provisorias].[idext] AS [idext], 
+    [vista_pago_provisorias].[idoperacion] AS [idoperacion], 
+    [vista_pago_provisorias].[idtransaccion] AS [idtransaccion], 
+    [vista_pago_provisorias].[rut_tes] AS [rut_tes], 
+    [vista_pago_provisorias].[formulario] AS [formulario], 
+    [vista_pago_provisorias].[folio] AS [folio], 
+    [vista_pago_provisorias].[totalpago] AS [totalpago], 
+    [vista_pago_provisorias].[cod_banco] AS [cod_banco], 
+    [vista_pago_provisorias].[nom_banco] AS [nom_banco], 
+    [vista_pago_provisorias].[fecha_pago] AS [fecha_pago], 
+    [vista_pago_provisorias].[ano_proceso] AS [ano_proceso], 
+    [vista_pago_provisorias].[periodo] AS [periodo], 
+    [vista_pago_provisorias].[ipc] AS [ipc], 
+    [vista_pago_provisorias].[multa] AS [multa], 
+    [vista_pago_provisorias].[idsesion] AS [idsesion], 
+    [vista_pago_provisorias].[FechaVenci] AS [FechaVenci], 
+    [vista_pago_provisorias].[montoCargo] AS [montoCargo], 
+    [vista_pago_provisorias].[estado] AS [estado], 
+    [vista_pago_provisorias].[NumeroArriendo] AS [NumeroArriendo], 
+    [vista_pago_provisorias].[RUT] AS [RUT], 
+    [vista_pago_provisorias].[NOMBRES] AS [NOMBRES], 
+    [vista_pago_provisorias].[Correo] AS [Correo], 
+    [vista_pago_provisorias].[Direccion] AS [Direccion], 
+    [vista_pago_provisorias].[Ar_DESCRIPCION] AS [Ar_DESCRIPCION], 
+    [vista_pago_provisorias].[glosa] AS [glosa], 
+    [vista_pago_provisorias].[MontoTotal] AS [MontoTotal]
+    FROM [dbo].[vista_pago_provisorias] AS [vista_pago_provisorias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_pagos_Convenio" EntityType="Self.Vista_pagos_Convenio" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_pagos_Convenio].[cod_banco] AS [cod_banco], 
+    [Vista_pagos_Convenio].[nom_banco] AS [nom_banco], 
+    [Vista_pagos_Convenio].[fecha_pago] AS [fecha_pago], 
+    [Vista_pagos_Convenio].[ano_proceso] AS [ano_proceso], 
+    [Vista_pagos_Convenio].[n_convenio] AS [n_convenio], 
+    [Vista_pagos_Convenio].[cuota] AS [cuota], 
+    [Vista_pagos_Convenio].[folio] AS [folio], 
+    [Vista_pagos_Convenio].[rut] AS [rut], 
+    [Vista_pagos_Convenio].[formulario] AS [formulario], 
+    [Vista_pagos_Convenio].[status] AS [status], 
+    [Vista_pagos_Convenio].[idoperacion] AS [idoperacion], 
+    [Vista_pagos_Convenio].[idtransaccion] AS [idtransaccion], 
+    [Vista_pagos_Convenio].[Monto] AS [Monto], 
+    [Vista_pagos_Convenio].[ipc] AS [ipc], 
+    [Vista_pagos_Convenio].[multa] AS [multa], 
+    [Vista_pagos_Convenio].[totalpago] AS [totalpago], 
+    [Vista_pagos_Convenio].[rut_completo] AS [rut_completo], 
+    [Vista_pagos_Convenio].[Nombre] AS [Nombre], 
+    [Vista_pagos_Convenio].[estado] AS [estado], 
+    [Vista_pagos_Convenio].[Rol_Patente] AS [Rol_Patente], 
+    [Vista_pagos_Convenio].[Rol_Aseo] AS [Rol_Aseo], 
+    [Vista_pagos_Convenio].[Placa] AS [Placa], 
+    [Vista_pagos_Convenio].[email] AS [email]
+    FROM [dbo].[Vista_pagos_Convenio] AS [Vista_pagos_Convenio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_pat_com_jc" EntityType="Self.vista_pat_com_jc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_pat_com_jc].[rut] AS [rut], 
+    [vista_pat_com_jc].[rol] AS [rol], 
+    [vista_pat_com_jc].[ano] AS [ano], 
+    [vista_pat_com_jc].[semestre] AS [semestre], 
+    [vista_pat_com_jc].[url] AS [url], 
+    [vista_pat_com_jc].[email] AS [email], 
+    [vista_pat_com_jc].[id_session] AS [id_session], 
+    [vista_pat_com_jc].[code] AS [code], 
+    [vista_pat_com_jc].[msgdesc] AS [msgdesc], 
+    [vista_pat_com_jc].[version] AS [version], 
+    [vista_pat_com_jc].[fromaddress] AS [fromaddress], 
+    [vista_pat_com_jc].[toaddress] AS [toaddress], 
+    [vista_pat_com_jc].[refaddress] AS [refaddress], 
+    [vista_pat_com_jc].[idoperacion] AS [idoperacion], 
+    [vista_pat_com_jc].[idtransaccion] AS [idtransaccion], 
+    [vista_pat_com_jc].[formulario] AS [formulario], 
+    [vista_pat_com_jc].[folio] AS [folio], 
+    [vista_pat_com_jc].[vencimiento] AS [vencimiento], 
+    [vista_pat_com_jc].[totalpago] AS [totalpago], 
+    [vista_pat_com_jc].[cod_banco] AS [cod_banco], 
+    [vista_pat_com_jc].[nom_banco] AS [nom_banco], 
+    [vista_pat_com_jc].[fecha_pago] AS [fecha_pago], 
+    [vista_pat_com_jc].[estado] AS [estado], 
+    [vista_pat_com_jc].[idext] AS [idext], 
+    [vista_pat_com_jc].[id] AS [id], 
+    [vista_pat_com_jc].[datetime] AS [datetime], 
+    [vista_pat_com_jc].[id_agile] AS [id_agile], 
+    [vista_pat_com_jc].[validation_code_agile] AS [validation_code_agile], 
+    [vista_pat_com_jc].[ipc] AS [ipc], 
+    [vista_pat_com_jc].[multa] AS [multa], 
+    [vista_pat_com_jc].[total_patente] AS [total_patente]
+    FROM [dbo].[vista_pat_com_jc] AS [vista_pat_com_jc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_patcom_tbk" EntityType="Self.vista_patcom_tbk" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_patcom_tbk].[id_transaccion] AS [id_transaccion], 
+    [vista_patcom_tbk].[rut] AS [rut], 
+    [vista_patcom_tbk].[rol] AS [rol], 
+    [vista_patcom_tbk].[ano] AS [ano], 
+    [vista_patcom_tbk].[semestre] AS [semestre], 
+    [vista_patcom_tbk].[url] AS [url], 
+    [vista_patcom_tbk].[email] AS [email], 
+    [vista_patcom_tbk].[id_session] AS [id_session], 
+    [vista_patcom_tbk].[id_agile] AS [id_agile], 
+    [vista_patcom_tbk].[validation_code_agile] AS [validation_code_agile], 
+    [vista_patcom_tbk].[tbk_num_tarjeta] AS [tbk_num_tarjeta], 
+    [vista_patcom_tbk].[tbk_venc_tarjeta] AS [tbk_venc_tarjeta], 
+    [vista_patcom_tbk].[tbk_fec_autorizacion] AS [tbk_fec_autorizacion], 
+    [vista_patcom_tbk].[tbk_fec_hora_autorizacion] AS [tbk_fec_hora_autorizacion], 
+    [vista_patcom_tbk].[tbk_total_pago] AS [tbk_total_pago], 
+    [vista_patcom_tbk].[tbk_tipo_pago] AS [tbk_tipo_pago], 
+    [vista_patcom_tbk].[tbk_codigo_autorizacion] AS [tbk_codigo_autorizacion], 
+    [vista_patcom_tbk].[tbk_orden_de_compra] AS [tbk_orden_de_compra], 
+    [vista_patcom_tbk].[ipc] AS [ipc], 
+    [vista_patcom_tbk].[interes] AS [interes], 
+    [vista_patcom_tbk].[total_patente] AS [total_patente], 
+    [vista_patcom_tbk].[tbk_respuesta] AS [tbk_respuesta], 
+    [vista_patcom_tbk].[idext] AS [idext], 
+    [vista_patcom_tbk].[folio] AS [folio]
+    FROM [dbo].[vista_patcom_tbk] AS [vista_patcom_tbk]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vista_pcv_jc" EntityType="Self.vista_pcv_jc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vista_pcv_jc].[folio] AS [folio], 
+    [vista_pcv_jc].[totalpago] AS [totalpago], 
+    [vista_pcv_jc].[estado] AS [estado], 
+    [vista_pcv_jc].[patente] AS [patente], 
+    [vista_pcv_jc].[fecha_pago] AS [fecha_pago], 
+    [vista_pcv_jc].[idsesion] AS [idsesion], 
+    [vista_pcv_jc].[ano] AS [ano], 
+    [vista_pcv_jc].[rut] AS [rut], 
+    [vista_pcv_jc].[email] AS [email], 
+    [vista_pcv_jc].[url] AS [url], 
+    [vista_pcv_jc].[poliza_seguro] AS [poliza_seguro], 
+    [vista_pcv_jc].[tipo_pago] AS [tipo_pago], 
+    [vista_pcv_jc].[nom_banco] AS [nom_banco], 
+    [vista_pcv_jc].[idext] AS [idext], 
+    [vista_pcv_jc].[id] AS [id], 
+    [vista_pcv_jc].[datetime] AS [datetime], 
+    [vista_pcv_jc].[permiso_imprimir] AS [permiso_imprimir], 
+    [vista_pcv_jc].[idoperacion] AS [idoperacion], 
+    [vista_pcv_jc].[idtransaccion] AS [idtransaccion], 
+    [vista_pcv_jc].[id_transaccion] AS [id_transaccion], 
+    [vista_pcv_jc].[ipc] AS [ipc], 
+    [vista_pcv_jc].[multa] AS [multa], 
+    [vista_pcv_jc].[total_patente] AS [total_patente]
+    FROM [dbo].[vista_pcv_jc] AS [vista_pcv_jc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_pcv_transbank" EntityType="Self.Vista_pcv_transbank" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_pcv_transbank].[tbk_idsesion] AS [tbk_idsesion], 
+    [Vista_pcv_transbank].[folio] AS [folio], 
+    [Vista_pcv_transbank].[patente] AS [patente], 
+    [Vista_pcv_transbank].[email] AS [email], 
+    [Vista_pcv_transbank].[poliza_seguro] AS [poliza_seguro], 
+    [Vista_pcv_transbank].[permiso_imprimir] AS [permiso_imprimir], 
+    [Vista_pcv_transbank].[tbk_total_pago] AS [tbk_total_pago], 
+    [Vista_pcv_transbank].[url] AS [url], 
+    [Vista_pcv_transbank].[tbk_fec_hora_autorizacion] AS [tbk_fec_hora_autorizacion], 
+    [Vista_pcv_transbank].[tbk_fec_autorizacion] AS [tbk_fec_autorizacion], 
+    [Vista_pcv_transbank].[ano] AS [ano], 
+    [Vista_pcv_transbank].[tipo_pago] AS [tipo_pago], 
+    [Vista_pcv_transbank].[tbk_orden_de_compra] AS [tbk_orden_de_compra], 
+    [Vista_pcv_transbank].[tbk_codigo_autorizacion] AS [tbk_codigo_autorizacion], 
+    [Vista_pcv_transbank].[tbk_tipo_pago] AS [tbk_tipo_pago], 
+    [Vista_pcv_transbank].[tbk_respuesta] AS [tbk_respuesta], 
+    [Vista_pcv_transbank].[rut] AS [rut], 
+    [Vista_pcv_transbank].[tbk_num_tarjeta] AS [tbk_num_tarjeta], 
+    [Vista_pcv_transbank].[tbk_tokenws] AS [tbk_tokenws], 
+    [Vista_pcv_transbank].[validation_code_agile] AS [validation_code_agile], 
+    [Vista_pcv_transbank].[ipc] AS [ipc], 
+    [Vista_pcv_transbank].[multa] AS [multa], 
+    [Vista_pcv_transbank].[total_patente] AS [total_patente]
+    FROM [dbo].[Vista_pcv_transbank] AS [Vista_pcv_transbank]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ValparaisoBD" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="vista_aseo_tbk">
+          <Key>
+            <PropertyRef Name="idsesion" />
+            <PropertyRef Name="ano" />
+            <PropertyRef Name="cuota" />
+            <PropertyRef Name="tbk_orden_de_compra" />
+            <PropertyRef Name="tbk_id_sesion" />
+          </Key>
+          <Property Name="Cont_Propietario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="tbk_num_tarjeta" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_venc_tarjeta" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_fec_autorizacion" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="DateTime" Precision="3" />
+          <Property Name="tbk_total_pago" Type="Int32" />
+          <Property Name="idsesion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" Nullable="false" />
+          <Property Name="cuota" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Int32" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_tipo_pago" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_codigo_autorizacion" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_respuesta" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_orden_de_compra" Type="String" MaxLength="61" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total_Cuota" Type="Int32" />
+          <Property Name="Cont_Rut" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Cont_Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="enviado" Type="Boolean" />
+          <Property Name="tbk_id_sesion" Type="String" MaxLength="61" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vista_pago_aseo_ext">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="NumeroArriendo" />
+            <PropertyRef Name="RUT" />
+            <PropertyRef Name="periodo" />
+            <PropertyRef Name="idsesion" />
+          </Key>
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="rut_tes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="formulario" Type="Int32" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="cod_banco" Type="Int32" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="Correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ano_proceso" Type="Int16" Nullable="false" />
+          <Property Name="NumeroArriendo" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="idsesion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaVenci" Type="DateTime" Precision="3" />
+          <Property Name="montoCargo" Type="Int32" />
+          <Property Name="estado" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vista_pago_jpl">
+          <Key>
+            <PropertyRef Name="id_multas" />
+          </Key>
+          <Property Name="id_session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="monto_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="detalle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_emision" Type="DateTime" Precision="3" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="vencimiento" Type="DateTime" Precision="3" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="resultado" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_pago" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="orden_ingreso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="año" Type="Int32" />
+          <Property Name="num_parte" Type="Int32" />
+          <Property Name="juzgado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="rut_tes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_citacion" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="estado_pago" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="id_multas" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vista_pago_provisorias">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="periodo" />
+            <PropertyRef Name="idsesion" />
+            <PropertyRef Name="NumeroArriendo" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="rut_tes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="formulario" Type="Int32" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="cod_banco" Type="Int32" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="ano_proceso" Type="Int16" Nullable="false" />
+          <Property Name="periodo" Type="Int16" Nullable="false" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="idsesion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaVenci" Type="DateTime" Precision="3" />
+          <Property Name="montoCargo" Type="Int32" />
+          <Property Name="estado" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroArriendo" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="66" FixedLength="false" Unicode="false" />
+          <Property Name="Ar_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="glosa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MontoTotal" Type="Double" />
+        </EntityType>
+        <EntityType Name="Vista_pagos_Convenio">
+          <Key>
+            <PropertyRef Name="ano_proceso" />
+            <PropertyRef Name="n_convenio" />
+            <PropertyRef Name="cuota" />
+          </Key>
+          <Property Name="cod_banco" Type="Int32" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="ano_proceso" Type="Int16" Nullable="false" />
+          <Property Name="n_convenio" Type="Int16" Nullable="false" />
+          <Property Name="cuota" Type="Int16" Nullable="false" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="formulario" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="rut_completo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Rol_Patente" Type="Int32" />
+          <Property Name="Rol_Aseo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vista_pat_com_jc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="semestre" Type="Int32" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="msgdesc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="fromaddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="toaddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="refaddress" Type="Int32" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="formulario" Type="Int32" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="vencimiento" Type="DateTime" Precision="3" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="cod_banco" Type="Int32" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="id_agile" Type="Int32" />
+          <Property Name="validation_code_agile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="total_patente" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vista_patcom_tbk">
+          <Key>
+            <PropertyRef Name="id_transaccion" />
+            <PropertyRef Name="tbk_orden_de_compra" />
+          </Key>
+          <Property Name="id_transaccion" Type="Int32" Nullable="false" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="semestre" Type="Int32" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_agile" Type="Int32" />
+          <Property Name="validation_code_agile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_num_tarjeta" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_venc_tarjeta" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_fec_autorizacion" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="DateTime" Precision="3" />
+          <Property Name="tbk_total_pago" Type="Int32" />
+          <Property Name="tbk_tipo_pago" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_codigo_autorizacion" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_orden_de_compra" Type="String" MaxLength="61" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="interes" Type="Int32" />
+          <Property Name="total_patente" Type="Int32" />
+          <Property Name="tbk_respuesta" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="folio" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vista_pcv_jc">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_transaccion" />
+          </Key>
+          <Property Name="folio" Type="Int32" />
+          <Property Name="totalpago" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="patente" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="idsesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="poliza_seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_pago" Type="Int32" />
+          <Property Name="nom_banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="idext" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="permiso_imprimir" Type="Boolean" />
+          <Property Name="idoperacion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="idtransaccion" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="id_transaccion" Type="Int32" Nullable="false" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="total_patente" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vista_pcv_transbank">
+          <Key>
+            <PropertyRef Name="tbk_orden_de_compra" />
+          </Key>
+          <Property Name="tbk_idsesion" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="folio" Type="Int32" />
+          <Property Name="patente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="poliza_seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="permiso_imprimir" Type="Boolean" />
+          <Property Name="tbk_total_pago" Type="Int32" />
+          <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_fec_hora_autorizacion" Type="DateTime" Precision="3" />
+          <Property Name="tbk_fec_autorizacion" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="tipo_pago" Type="Int32" />
+          <Property Name="tbk_orden_de_compra" Type="String" MaxLength="61" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tbk_codigo_autorizacion" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_tipo_pago" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_respuesta" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_num_tarjeta" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="tbk_tokenws" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="validation_code_agile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ipc" Type="Int32" />
+          <Property Name="multa" Type="Int32" />
+          <Property Name="total_patente" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ValpoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vista_aseo_tbk" EntityType="Self.vista_aseo_tbk" />
+          <EntitySet Name="vista_pago_aseo_ext" EntityType="Self.vista_pago_aseo_ext" />
+          <EntitySet Name="vista_pago_jpl" EntityType="Self.vista_pago_jpl" />
+          <EntitySet Name="vista_pago_provisorias" EntityType="Self.vista_pago_provisorias" />
+          <EntitySet Name="Vista_pagos_Convenio" EntityType="Self.Vista_pagos_Convenio" />
+          <EntitySet Name="vista_pat_com_jc" EntityType="Self.vista_pat_com_jc" />
+          <EntitySet Name="vista_patcom_tbk" EntityType="Self.vista_patcom_tbk" />
+          <EntitySet Name="vista_pcv_jc" EntityType="Self.vista_pcv_jc" />
+          <EntitySet Name="Vista_pcv_transbank" EntityType="Self.Vista_pcv_transbank" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ValparaisoBDStoreContainer" CdmEntityContainer="ValpoEntities">
+          <EntitySetMapping Name="vista_aseo_tbk">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_aseo_tbk">
+              <MappingFragment StoreEntitySet="vista_aseo_tbk">
+                <ScalarProperty Name="Cont_Propietario" ColumnName="Cont_Propietario" />
+                <ScalarProperty Name="tbk_num_tarjeta" ColumnName="tbk_num_tarjeta" />
+                <ScalarProperty Name="tbk_venc_tarjeta" ColumnName="tbk_venc_tarjeta" />
+                <ScalarProperty Name="tbk_fec_autorizacion" ColumnName="tbk_fec_autorizacion" />
+                <ScalarProperty Name="tbk_fec_hora_autorizacion" ColumnName="tbk_fec_hora_autorizacion" />
+                <ScalarProperty Name="tbk_total_pago" ColumnName="tbk_total_pago" />
+                <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="tbk_tipo_pago" ColumnName="tbk_tipo_pago" />
+                <ScalarProperty Name="tbk_codigo_autorizacion" ColumnName="tbk_codigo_autorizacion" />
+                <ScalarProperty Name="tbk_respuesta" ColumnName="tbk_respuesta" />
+                <ScalarProperty Name="tbk_orden_de_compra" ColumnName="tbk_orden_de_compra" />
+                <ScalarProperty Name="Total_Cuota" ColumnName="Total_Cuota" />
+                <ScalarProperty Name="Cont_Rut" ColumnName="Cont_Rut" />
+                <ScalarProperty Name="Cont_Direccion" ColumnName="Cont_Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="enviado" ColumnName="enviado" />
+                <ScalarProperty Name="tbk_id_sesion" ColumnName="tbk_id_sesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_pago_aseo_ext">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_pago_aseo_ext">
+              <MappingFragment StoreEntitySet="vista_pago_aseo_ext">
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="rut_tes" ColumnName="rut_tes" />
+                <ScalarProperty Name="formulario" ColumnName="formulario" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="cod_banco" ColumnName="cod_banco" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="ano_proceso" ColumnName="ano_proceso" />
+                <ScalarProperty Name="NumeroArriendo" ColumnName="NumeroArriendo" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+                <ScalarProperty Name="FechaVenci" ColumnName="FechaVenci" />
+                <ScalarProperty Name="montoCargo" ColumnName="montoCargo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_pago_jpl">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_pago_jpl">
+              <MappingFragment StoreEntitySet="vista_pago_jpl">
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="monto_rol" ColumnName="monto_rol" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+                <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="orden_ingreso" ColumnName="orden_ingreso" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="num_parte" ColumnName="num_parte" />
+                <ScalarProperty Name="juzgado" ColumnName="juzgado" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="rut_tes" ColumnName="rut_tes" />
+                <ScalarProperty Name="fecha_citacion" ColumnName="fecha_citacion" />
+                <ScalarProperty Name="estado_pago" ColumnName="estado_pago" />
+                <ScalarProperty Name="id_multas" ColumnName="id_multas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_pago_provisorias">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_pago_provisorias">
+              <MappingFragment StoreEntitySet="vista_pago_provisorias">
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="rut_tes" ColumnName="rut_tes" />
+                <ScalarProperty Name="formulario" ColumnName="formulario" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="cod_banco" ColumnName="cod_banco" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="ano_proceso" ColumnName="ano_proceso" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+                <ScalarProperty Name="FechaVenci" ColumnName="FechaVenci" />
+                <ScalarProperty Name="montoCargo" ColumnName="montoCargo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="NumeroArriendo" ColumnName="NumeroArriendo" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ar_DESCRIPCION" ColumnName="Ar_DESCRIPCION" />
+                <ScalarProperty Name="glosa" ColumnName="glosa" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_pagos_Convenio">
+            <EntityTypeMapping TypeName="ValparaisoBD.Vista_pagos_Convenio">
+              <MappingFragment StoreEntitySet="Vista_pagos_Convenio">
+                <ScalarProperty Name="cod_banco" ColumnName="cod_banco" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="ano_proceso" ColumnName="ano_proceso" />
+                <ScalarProperty Name="n_convenio" ColumnName="n_convenio" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="formulario" ColumnName="formulario" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="rut_completo" ColumnName="rut_completo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="Rol_Patente" ColumnName="Rol_Patente" />
+                <ScalarProperty Name="Rol_Aseo" ColumnName="Rol_Aseo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_pat_com_jc">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_pat_com_jc">
+              <MappingFragment StoreEntitySet="vista_pat_com_jc">
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="semestre" ColumnName="semestre" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="msgdesc" ColumnName="msgdesc" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="fromaddress" ColumnName="fromaddress" />
+                <ScalarProperty Name="toaddress" ColumnName="toaddress" />
+                <ScalarProperty Name="refaddress" ColumnName="refaddress" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="formulario" ColumnName="formulario" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="cod_banco" ColumnName="cod_banco" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="id_agile" ColumnName="id_agile" />
+                <ScalarProperty Name="validation_code_agile" ColumnName="validation_code_agile" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="total_patente" ColumnName="total_patente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_patcom_tbk">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_patcom_tbk">
+              <MappingFragment StoreEntitySet="vista_patcom_tbk">
+                <ScalarProperty Name="id_transaccion" ColumnName="id_transaccion" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="semestre" ColumnName="semestre" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="id_agile" ColumnName="id_agile" />
+                <ScalarProperty Name="validation_code_agile" ColumnName="validation_code_agile" />
+                <ScalarProperty Name="tbk_num_tarjeta" ColumnName="tbk_num_tarjeta" />
+                <ScalarProperty Name="tbk_venc_tarjeta" ColumnName="tbk_venc_tarjeta" />
+                <ScalarProperty Name="tbk_fec_autorizacion" ColumnName="tbk_fec_autorizacion" />
+                <ScalarProperty Name="tbk_fec_hora_autorizacion" ColumnName="tbk_fec_hora_autorizacion" />
+                <ScalarProperty Name="tbk_total_pago" ColumnName="tbk_total_pago" />
+                <ScalarProperty Name="tbk_tipo_pago" ColumnName="tbk_tipo_pago" />
+                <ScalarProperty Name="tbk_codigo_autorizacion" ColumnName="tbk_codigo_autorizacion" />
+                <ScalarProperty Name="tbk_orden_de_compra" ColumnName="tbk_orden_de_compra" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="total_patente" ColumnName="total_patente" />
+                <ScalarProperty Name="tbk_respuesta" ColumnName="tbk_respuesta" />
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vista_pcv_jc">
+            <EntityTypeMapping TypeName="ValparaisoBD.vista_pcv_jc">
+              <MappingFragment StoreEntitySet="vista_pcv_jc">
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="totalpago" ColumnName="totalpago" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="patente" ColumnName="patente" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="idsesion" ColumnName="idsesion" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="poliza_seguro" ColumnName="poliza_seguro" />
+                <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="idext" ColumnName="idext" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="permiso_imprimir" ColumnName="permiso_imprimir" />
+                <ScalarProperty Name="idoperacion" ColumnName="idoperacion" />
+                <ScalarProperty Name="idtransaccion" ColumnName="idtransaccion" />
+                <ScalarProperty Name="id_transaccion" ColumnName="id_transaccion" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="total_patente" ColumnName="total_patente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_pcv_transbank">
+            <EntityTypeMapping TypeName="ValparaisoBD.Vista_pcv_transbank">
+              <MappingFragment StoreEntitySet="Vista_pcv_transbank">
+                <ScalarProperty Name="tbk_idsesion" ColumnName="tbk_idsesion" />
+                <ScalarProperty Name="folio" ColumnName="folio" />
+                <ScalarProperty Name="patente" ColumnName="patente" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="poliza_seguro" ColumnName="poliza_seguro" />
+                <ScalarProperty Name="permiso_imprimir" ColumnName="permiso_imprimir" />
+                <ScalarProperty Name="tbk_total_pago" ColumnName="tbk_total_pago" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="tbk_fec_hora_autorizacion" ColumnName="tbk_fec_hora_autorizacion" />
+                <ScalarProperty Name="tbk_fec_autorizacion" ColumnName="tbk_fec_autorizacion" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+                <ScalarProperty Name="tbk_orden_de_compra" ColumnName="tbk_orden_de_compra" />
+                <ScalarProperty Name="tbk_codigo_autorizacion" ColumnName="tbk_codigo_autorizacion" />
+                <ScalarProperty Name="tbk_tipo_pago" ColumnName="tbk_tipo_pago" />
+                <ScalarProperty Name="tbk_respuesta" ColumnName="tbk_respuesta" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="tbk_num_tarjeta" ColumnName="tbk_num_tarjeta" />
+                <ScalarProperty Name="tbk_tokenws" ColumnName="tbk_tokenws" />
+                <ScalarProperty Name="validation_code_agile" ColumnName="validation_code_agile" />
+                <ScalarProperty Name="ipc" ColumnName="ipc" />
+                <ScalarProperty Name="multa" ColumnName="multa" />
+                <ScalarProperty Name="total_patente" ColumnName="total_patente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

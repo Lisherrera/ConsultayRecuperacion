@@ -1,42 +1,11 @@
-﻿'------------------------------------------------------------------------------
-' <generado automáticamente>
-'     Este código fue generado por una herramienta.
-'
-'     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
-'     se vuelve a generar el código. 
-' </generado automáticamente>
-'------------------------------------------------------------------------------
-
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 
+Namespace Consulta
+    Partial Public Class ConsultaAseoRol
 
-Partial Public Class ConsultaAseoRol
+        Protected WithEvents lblRol As Global.System.Web.UI.WebControls.Label
+        Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
 
-    '''<summary>
-    '''Control lblRol.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblRol As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control GridView1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Control SqlDataSource1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
-End Class
+    End Class
+End Namespace

@@ -1,54 +1,49 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-Imports System.Configuration
+﻿Imports System
+Imports System.Linq
+Imports Consulta ' Namespace donde está tu DbContext
 
 Partial Class MostrarDocumentos
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            ' Verificar que exista RUT en sesión
-            If Session("rutUsuario") IsNot Nothing Then
-                Dim rut As String = Session("rutUsuario").ToString().Trim()
-                CargarDatosUsuario(rut)
+            ' Verificar si hay RUT en sesión
+            If Session("rut") IsNot Nothing Then
+                Dim rut As String = Session("rut").ToString().Trim()
+                If String.IsNullOrEmpty(rut) Then
+                    lblNombres.Text = "RUT en sesión vacío."
+                    lblRut.Text = "-"
+                Else
+                    ' Llamar a la función para cargar datos
+                    CargarDatosUsuario(rut)
+                End If
             Else
-                lblNombres.Text = "Sin Nombre."
-                lblRut.Text = "No se ha ingresado un RUT."
+                lblNombres.Text = "No se ha ingresado un RUT en sesión."
+                lblRut.Text = "-"
             End If
         End If
     End Sub
 
     Private Sub CargarDatosUsuario(rut As String)
-        ' Conexión desde web.config
-        Dim connStr As String = ConfigurationManager.ConnectionStrings("pcv").ConnectionString
+        Try
+            Using context As New ValparaisoUsuariosEntities() ' Tu DbContext para la nueva vista
+                ' Buscar el usuario por RUT (sin Trim() todavía para depurar)
+                Dim usuario = context.PATCOM_Maestro_Contribuyente_Vista _
+                    .Where(Function(u) u.RUT.ToUpper() = rut.ToUpper()) _
+                    .FirstOrDefault()
 
-        Using conn As New SqlConnection(connStr)
-            ' Ajusta "Nombre_Cliente" y "RUT_Cliente" según tu tabla real
-            Dim query As String = "SELECT Rut, Nombre FROM ..... WHERE RUT = @Rut"
-
-            Using cmd As New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@Rut", rut)
-                Dim dt As New DataTable()
-
-                Try
-                    conn.Open()
-                    Dim da As New SqlDataAdapter(cmd)
-                    da.Fill(dt)
-
-                    If dt.Rows.Count > 0 Then
-                        ' Asignar valores a los labels
-                        lblNombres.Text = dt.Rows(0)("NOMBRE").ToString()
-                        lblRut.Text = dt.Rows(0)("RUT").ToString()
-                    Else
-                        lblNombres.Text = "No se encontraron documentos para este RUT."
-                        lblRut.Text = rut
-                    End If
-
-                Catch ex As Exception
-                    lblNombres.Text = "Error al consultar la base de datos: " & ex.Message
+                If usuario IsNot Nothing Then
+                    lblNombres.Text = usuario.NOMBRE
+                    lblRut.Text = usuario.RUT
+                Else
+                    lblNombres.Text = "No se encontraron documentos para el RUT: " & rut
                     lblRut.Text = rut
-                End Try
+                End If
             End Using
-        End Using
+        Catch ex As Exception
+            lblNombres.Text = "Error al consultar la base de datos: " & ex.Message
+            lblRut.Text = rut
+        End Try
     End Sub
+
 End Class

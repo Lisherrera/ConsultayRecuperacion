@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,12 +47,20 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -145,9 +154,18 @@
     <Content Include="Assets\js\vendor\popper.min.js" />
     <Content Include="Assets\js\vendor\prism.js" />
     <Content Include="Assets\js\vendor\share.js" />
+    <Content Include="BaseDeDatos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+      <LastGenOutput>BaseDeDatos.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="BaseDeDatos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+      <LastGenOutput>BaseDeDatos.vb</LastGenOutput>
+    </Content>
     <Content Include="ConsultaDeuda.aspx" />
     <Content Include="ConsultaHora.aspx" />
-    <Content Include="ConsultaMultas.aspx" />
     <Content Include="ConsultaAseoRol.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -156,7 +174,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\css\main.css.map" />
+    <Content Include="ConsultaMultas.aspx" />
+    <EntityDeploy Include="BaseDeDatos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BaseDeDatos.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="BaseDeDatos.edmx.diagram">
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.vb</LastGenOutput>
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.vb</LastGenOutput>
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+    </Content>
     <Content Include="RecuperacionAseo.aspx" />
     <Content Include="RecuperacionConvenio.aspx" />
     <Content Include="RecuperacionOtros.aspx" />
@@ -192,11 +229,36 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="RecuperarDocumentos.aspx" />
+    <Content Include="Usuarios.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Usuarios.edmx</DependentUpon>
+      <LastGenOutput>Usuarios.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Usuarios.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Usuarios.edmx</DependentUpon>
+      <LastGenOutput>Usuarios.vb</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="BaseDeDatos.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDeDatos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDeDatos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDeDatos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDeDatos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaDeuda.aspx.designer.vb">
       <DependentUpon>ConsultaDeuda.aspx</DependentUpon>
     </Compile>
@@ -211,19 +273,12 @@
       <DependentUpon>ConsultaHora.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ConsultaMultas.aspx.designer.vb">
-      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultaMultas.aspx.vb">
-      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="ConsultaAseoRol.aspx.designer.vb">
       <DependentUpon>ConsultaAseoRol.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultaAseoRol.aspx.vb">
       <DependentUpon>ConsultaAseoRol.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HomePage.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
@@ -231,6 +286,16 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.vb">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -250,6 +315,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PATCOM_Maestro_Contribuyente_Vista.vb">
+      <DependentUpon>Usuarios.tt</DependentUpon>
     </Compile>
     <Compile Include="RecuperacionAseo.aspx.designer.vb">
       <DependentUpon>RecuperacionAseo.aspx</DependentUpon>
@@ -277,21 +345,19 @@
     </Compile>
     <Compile Include="RecuperacionPatente.aspx.vb">
       <DependentUpon>RecuperacionPatente.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="RecuperacionCirculacion.aspx.designer.vb">
       <DependentUpon>RecuperacionCirculacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="RecuperacionCirculacion.aspx.vb">
       <DependentUpon>RecuperacionCirculacion.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="MostrarDocumentos.aspx.designer.vb">
       <DependentUpon>MostrarDocumentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="MostrarDocumentos.aspx.vb">
       <DependentUpon>MostrarDocumentos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
@@ -306,6 +372,55 @@
     <Compile Include="RecuperarDocumentos.aspx.vb">
       <DependentUpon>RecuperarDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_aseo_tbk.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vista_pagos_Convenio.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_pago_aseo_ext.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_pago_jpl.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_pago_provisorias.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_patcom_tbk.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_pat_com_jc.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vista_pcv_jc.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vista_pcv_transbank.vb">
+      <DependentUpon>BaseDeDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaMultas.aspx.designer.vb">
+      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaMultas.aspx.vb">
+      <DependentUpon>ConsultaMultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +444,13 @@
     <Content Include="Site.Master" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <EntityDeploy Include="Usuarios.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Usuarios.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Usuarios.edmx.diagram">
+      <DependentUpon>Usuarios.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -338,6 +460,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -381,7 +506,10 @@
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

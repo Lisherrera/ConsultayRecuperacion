@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperacionCirculacion.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="RecuperacionCirculacion.aspx.vb" Inherits="Consulta.RecuperacionCirculacion" %>
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
 
     <main class="pago-main" data-aos="fade-up">        
         <div class="container">
@@ -22,10 +24,10 @@
                             <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
                             <asp:BoundField DataField="patente" HeaderText="Patente" SortExpression="patente" />
                             <asp:BoundField DataField="tbk_fec_hora_autorizacion" HeaderText="Fecha pago" SortExpression="tbk_fec_hora_autorizacion" />
-                            <asp:BoundField DataField="Tipo_pago" HeaderText="Tipo Pago" ReadOnly="True" SortExpression="Tipo_pago" />
+                            <asp:BoundField DataField="tipo_pago" HeaderText="Tipo Pago" ReadOnly="True" SortExpression="Tipo_pago" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("url", "{0}") %>' Target="_blank" Text='<%# Eval("url", "{0}") %>'></asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Bind("url", "{0}") %>' Target="_blank" Text='<%# Bind("url", "{0}") %>'></asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -56,10 +58,10 @@
                             <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
                             <asp:BoundField DataField="patente" HeaderText="Patente" SortExpression="patente" />
                             <asp:BoundField DataField="fecha_pago" HeaderText="Fecha pago" SortExpression="fecha_pago" />
-                            <asp:BoundField DataField="Tipo_pago" HeaderText="Tipo Pago" ReadOnly="True" SortExpression="Tipo_pago" />
+                            <asp:BoundField DataField="tipo_pago" HeaderText="Tipo Pago" ReadOnly="True" SortExpression="Tipo_pago" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("url", "{0}") %>' Target="_blank" Text='Ver Documento'></asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Bind("url", "{0}") %>' Target="_blank" Text='Ver Documento'></asp:HyperLink>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

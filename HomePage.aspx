@@ -14,7 +14,6 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
                     <div class="w-100 mx-auto border rounded shadow-sm p-3 text-center h-100">
                         <i class="fa fa-dollar" style="font-size: 40px;"></i>
-           <!-- ver tipografia             -->
                         <h5 class="mb-3">Consultar <br> deudas</h5>
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">
                             En esta sección usted podrá consultar si tienes deudas pendientes con nuestro municipio.

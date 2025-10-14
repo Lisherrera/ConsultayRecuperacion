@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="RecuperarDocumentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperarDocumentos.aspx.vb" Inherits="Consulta.RecuperarDocumentos" %>
 
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main class="pago-main" data-aos="fade-up">        
@@ -14,10 +15,17 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
                     <div class="w-100 mx-auto border rounded shadow-sm p-3 text-start h-100">
                         <h5 class="mb-3">Recuperar documento por Rut</h5>
-                        <p>Ingrese su RUT para recuperar los documentos que ha pagado en línea:</p>
+                        
+                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px">Ingrese su RUT para recuperar los documentos que ha pagado en línea:</p>
 
                         <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-                        
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check-square"></i> Patente Comercial</li>
+                            <li><i class="fa fa-check-square"></i> Permiso de Circulación </li>
+                            <li><i class="fa fa-check-square"></i> Aseo Extraordinario </li>
+                            <li><i class="fa fa-check-square"></i> Convenios de Pago </li>
+                            <li><i class="fa fa-check-square"></i> Otros Pagos </li>
+                        </ul>
 
 
                         <label for="txtRut" class="form-label fs-6">Ingrese RUT:</label>
@@ -28,6 +36,7 @@
                                     CssClass="btn btn-primary" OnClick="btnRecuperarRut_Click" />
                     </div>
                 </div>
+
 
                 <!-- Recuperar por patente -->
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 mb-3 mt-3 d-flex">
@@ -44,6 +53,9 @@
                         </div>
 
                         <div class="mt-3 text-start">
+                            <br />
+                            <br />
+                            <br />
                             <label for="txtPatente" class="form-label fs-6">
                                 Ingrese patente:
                             </label>
@@ -67,6 +79,11 @@
                         <ul class="list-unstyled">
                             <li><i class="fa fa-check-square"></i> Aseo Domiciliario</li>
                         </ul>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+
 
                         <div class="mt-3 text-start">
                             <label for="txtRol1" class="form-label fs-6">Ingrese Rol:</label>

@@ -1,49 +1,63 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-Imports System.Configuration
+﻿Imports System
+Imports System.Linq
 
-Partial Class ConsultaMultas
-    Inherits System.Web.UI.Page
+Namespace Consulta
+    Partial Public Class ConsultaMultas
+        Inherits System.Web.UI.Page
 
-    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If Not IsPostBack Then
-            ' Recuperar patente desde QueryString
-            Dim patente As String = Request.QueryString("patente")
-            If Not String.IsNullOrEmpty(patente) Then
-                CargarMultas(patente)
+        Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+            If Not IsPostBack Then
+                ' Verificamos si hay patente en sesión
+                Dim patenteInput As String = TryCast(Session("patente"), String)
+
+                If Not String.IsNullOrEmpty(patenteInput) Then
+                    CargarMultas(patenteInput)
+                    ' Opcional: limpiar la sesión si no quieres mantener la patente
+                    ' Session("patente") = Nothing
+                Else
+                    lblMensaje.Text = "No se recibió ninguna patente para consultar."
+                    grd_pcv.DataSource = Nothing
+                    grd_pcv.DataBind()
+                End If
             End If
-        End If
-    End Sub
+        End Sub
 
-    Private Sub CargarMultas(patente As String)
-        ' Conexión a la base de datos desde web.config
-        Dim connStr As String = ConfigurationManager.ConnectionStrings("pcv").ConnectionString
+        Private Sub CargarMultas(patente As String)
+            If String.IsNullOrWhiteSpace(patente) Then
+                lblMensaje.Text = "Debe ingresar una patente."
+                grd_pcv.DataSource = Nothing
+                grd_pcv.DataBind()
+                Return
+            End If
 
-        Using conn As New SqlConnection(connStr)
-            Dim query As String = "SELECT * FROM Multas WHERE Patente = @Patente" ' Ajusta la tabla y campos según tu BD
-            Using cmd As New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@Patente", patente)
-                Dim dt As New DataTable()
+            Dim patenteInput = patente.Trim().ToUpper()
 
-                Try
-                    conn.Open()
-                    Dim da As New SqlDataAdapter(cmd)
-                    da.Fill(dt)
+            Using context As New ValpoEntities()
+                ' Quitamos guiones y espacios de ambos lados
+                Dim multas = context.vista_pago_jpl _
+                    .Where(Function(m) m.rol.Replace("-", "").Trim().ToUpper() = patenteInput.Replace("-", "").Trim().ToUpper()) _
+                    .Select(Function(m) New With {
+                        m.folio,
+                        m.rol,
+                        m.rut,
+                        m.nombre,
+                        m.fecha_pago,
+                        m.url
+                    }).ToList()
 
-                    If dt.Rows.Count > 0 Then
-                        grd_pcv.DataSource = dt
-                        grd_pcv.DataBind()
-                        lblMensaje.Text = ""
-                    Else
-                        lblMensaje.Text = "No se encontraron multas para la patente ingresada."
-                        grd_pcv.DataSource = Nothing
-                        grd_pcv.DataBind()
-                    End If
-
-                Catch ex As Exception
-                    lblMensaje.Text = "Error al consultar la base de datos: " & ex.Message
-                End Try
+                If multas.Any() Then
+                    grd_pcv.DataSource = multas
+                    grd_pcv.DataBind()
+                    lblMensaje.Text = ""
+                Else
+                    lblMensaje.Text = "No se encontraron multas para la patente ingresada."
+                    grd_pcv.DataSource = Nothing
+                    grd_pcv.DataBind()
+                End If
             End Using
-        End Using
-    End Sub
-End Class
+        End Sub
+
+
+
+    End Class
+End Namespace
