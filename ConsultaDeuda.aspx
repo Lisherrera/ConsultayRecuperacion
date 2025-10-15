@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="true" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="VB" AutoEventWireup="true" MasterPageFile="~/Site.Master" Title="Consulta de Deudas" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

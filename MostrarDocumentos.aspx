@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MostrarDocumentos.aspx.vb" Inherits="Consulta.MostrarDocumentos" %>
+﻿<%@ Page Title="Mostrar Documentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MostrarDocumentos.aspx.vb" Inherits="Consulta.MostrarDocumentos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -23,7 +23,6 @@
                     <asp:Label ID="lblRut" runat="server" Text=""></asp:Label>
                     <br>
                 </div>
-                .
                 <div class="col-md-10" style="padding-top: 25px;">
                     <span style="color: red; display: inline-flex; align-items: center; gap: 0.3em;">
                         <svg class="svg-inline--fa fa-exclamation-triangle" 

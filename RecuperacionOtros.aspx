@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperacionOtros.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="Recuperacion Otros" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperacionOtros.aspx.vb" Inherits="Consulta.RecuperacionOtros" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -14,35 +14,37 @@
                     <div class="col-md-12">
                         <h5>Otros Pagos</h5>
                     </div>
-                    <asp:GridView ID="gvOtrosPagos" runat="server" AllowPaging="True" AutoGenerateColumns="False" EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None"
-                        DataSourceID="sdsOtrosPagos" DataKeyNames="NumeroArriendo,RUT">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <asp:GridView ID="gvOtrosPagos" runat="server" AllowPaging="True" AutoGenerateColumns="False" 
+                        EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None">
+                        
                         <Columns>
-                            <asp:BoundField DataField="ano_proceso" HeaderText="Año" SortExpression="ano_proceso" />
-                            <asp:BoundField DataField="folio" HeaderText="Folio" ReadOnly="True" SortExpression="folio" />
-                            <asp:BoundField DataField="RUT" HeaderText ="Rut" ReadOnly="true" SortExpression="RUT" />
-                            <asp:BoundField DataField="NumeroArriendo" HeaderText="N° Arriendo" SortExpression="NumeroArriendo" />
-                            <asp:BoundField DataField="fecha_pago" DataFormatString="{0:d}" HeaderText="Fecha" SortExpression="fecha_pago" />
-                            <asp:BoundField DataField="totalpago" DataFormatString="{0:c0}" HeaderText="Total" SortExpression="totalpago" />
-                            <asp:HyperLinkField DataNavigateUrlFields="folio" DataNavigateUrlFormatString="https://www.yopagoenvalpo.cl/provisorias/comprobante-pago.aspx?folio={0}" Text="Ver Documento" Target="_blank" />
+                            <asp:BoundField DataField="AnoProceso" HeaderText="Año" />
+                            <asp:BoundField DataField="Folio" HeaderText="Folio" />
+                            <asp:BoundField DataField="RUT" HeaderText="Rut" />
+                            <asp:BoundField DataField="NumeroArriendo" HeaderText="N° Arriendo" />
+                            <asp:BoundField DataField="FechaPago" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha" />
+                            <asp:BoundField DataField="TotalPago" DataFormatString="{0:c0}" HeaderText="Total" />
+
+                            <asp:HyperLinkField 
+                                DataTextField="Folio" 
+                                Text="Ver Documento"
+                                DataNavigateUrlFields="Folio"
+                                DataNavigateUrlFormatString="https://www.yopagoenvalpo.cl/provisorias/comprobante-pago.aspx?folio={0}"
+                                Target="_blank" />
                         </Columns>
-                        <EditRowStyle BackColor="#999999" />
-                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
-                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+
+                        <EditRowStyle BackColor="#999999" /> 
+                        <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" /> 
+                        <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" /> 
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" /> 
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" /> 
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" /> 
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" /> 
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
                     </asp:GridView>
-                    <asp:SqlDataSource ID="sdsOtrosPagos" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>"
-                        SelectCommand="SELECT DISTINCT folio, ano_proceso, totalpago, fecha_pago, NumeroArriendo, RUT FROM [vista_pago_provisorias] WHERE (RUT = @rut) ORDER BY folio DESC">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="rut" SessionField="rut" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
                     <br>
                 </div>
             </div>

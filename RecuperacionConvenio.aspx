@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperacionConvenio.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="Recuperacion Convenios" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperacionConvenio.aspx.vb" Inherits="Consulta.RecuperacionConvenio" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -14,17 +14,28 @@
                     <div class="col-md-12">
                         <h5>Convenios de Pago</h5>
                     </div>
-                    <asp:GridView ID="grd_convenios" runat="server" AllowPaging="True" AutoGenerateColumns="False" EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4" CssClass="table" ForeColor="#333333" GridLines="None" DataSourceID="SqlDataSource3">
-                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <asp:GridView ID="grd_convenios" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                        EmptyDataText="Sin Documentos Digitales!" PageSize="5" Width="100%" CellPadding="4"
+                        CssClass="table" ForeColor="#333333" GridLines="None"
+                        OnPageIndexChanging="grd_convenios_PageIndexChanging">
+
+
                         <Columns>
-                            <asp:BoundField DataField="folio" HeaderText="Folio" SortExpression="folio" />
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-                            <asp:BoundField DataField="rut_completo" HeaderText="Rut" SortExpression="rut_completo" />
-                            <asp:BoundField DataField="fecha_pago" HeaderText="Fec.Pago" SortExpression="fecha_pago" DataFormatString="{0:d}" />
-                            <asp:BoundField DataField="ano_proceso" HeaderText="Año" SortExpression="ano_proceso" />
-                            <asp:BoundField DataField="n_convenio" HeaderText="N° Conv." SortExpression="n_convenio" />
-                            <asp:HyperLinkField DataNavigateUrlFields="folio" DataNavigateUrlFormatString="http://pagos.munivalpo.cl/convenios/comprobante-pago.aspx?folio={0}" Target="_blank" Text="Ver Documento" />
+                            <asp:BoundField DataField="Folio" HeaderText="Folio" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="RutCompleto" HeaderText="Rut" />
+                            <asp:BoundField DataField="FechaPago" HeaderText="Fecha Pago" DataFormatString="{0:dd/MM/yyyy}" />
+                            <asp:BoundField DataField="AnoProceso" HeaderText="Año" />
+                            <asp:BoundField DataField="NConvenio" HeaderText="N° Conv." />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="HyperLink1" runat="server"
+                                        NavigateUrl='<%# "http://pagos.munivalpo.cl/convenios/comprobante-pago.aspx?folio=" & Eval("Folio") %>'
+                                        Target="_blank">Ver Documento</asp:HyperLink>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
+
                         <EditRowStyle BackColor="#999999" />
                         <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" />
@@ -35,12 +46,9 @@
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ValparaisoConnectionString %>" SelectCommand="SELECT DISTINCT fecha_pago, ano_proceso, n_convenio, rut_completo, Nombre, estado, Rol_Patente, Rol_Aseo, Placa, folio FROM Vista_pagos_Convenio WHERE (rut_completo = @rut)">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="rut" SessionField="rut" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
+
                     <br>
                 </div>
             </div>

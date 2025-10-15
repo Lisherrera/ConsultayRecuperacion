@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaHora.aspx.vb" Inherits="Consulta._Default" %>
+﻿<%@ Page Title="Consulta de Horas" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaHora.aspx.vb" Inherits="Consulta._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

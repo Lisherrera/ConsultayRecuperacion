@@ -14,9 +14,9 @@
                             <div class="col-md-12">
                                 <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3"></asp:Label>
                                 <asp:GridView ID="grd_pcv" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                                    CellPadding="4" CssClass="table table-striped" EmptyDataText="Sin Documentos Digitales!"
-                                    ForeColor="#333333" GridLines="None" PageSize="5" Width="100%">
-                                    
+                                              CellPadding="4" CssClass="table" EmptyDataText="Sin Documentos Digitales!"
+                                              ForeColor="#333333" GridLines="None" PageSize="5" Width="100%">
+
                                     <Columns>
                                         <asp:BoundField DataField="folio" HeaderText="Folio" />
                                         <asp:BoundField DataField="rol" HeaderText="Patente" />
@@ -25,11 +25,24 @@
                                         <asp:BoundField DataField="fecha_pago" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha" />
                                         <asp:TemplateField HeaderText="Documento">
                                             <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Bind("url") %>' Target="_blank">Ver Documento</asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Bind("url") %>' 
+                                                                Target="_blank" ForeColor="#333333">Ver Documento</asp:HyperLink>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
+
+                                    <EditRowStyle BackColor="#999999" /> 
+                                    <FooterStyle BackColor="#666666" Font-Bold="True" ForeColor="White" /> 
+                                    <HeaderStyle BackColor="#666666" Font-Bold="false" ForeColor="white" /> 
+                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" /> 
+                                    <SelectedRowStyle BackColor="#D3D3D3" Font-Bold="True" ForeColor="#333333" /> 
+                                    <SortedAscendingCellStyle BackColor="#D3D3D3" /> 
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" /> 
+                                    <SortedDescendingCellStyle BackColor="#D3D3D3" /> 
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
                                 </asp:GridView>
+
                             </div>
                         </div>
                     </asp:Panel>

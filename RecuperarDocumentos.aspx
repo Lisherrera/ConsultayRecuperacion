@@ -1,4 +1,4 @@
-﻿<%@ Page Title="RecuperarDocumentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperarDocumentos.aspx.vb" Inherits="Consulta.RecuperarDocumentos" %>
+﻿<%@ Page Title="Recuperar Documentos" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RecuperarDocumentos.aspx.vb" Inherits="Consulta.RecuperarDocumentos" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -89,10 +89,10 @@
                             <label for="txtRol1" class="form-label fs-6">Ingrese Rol:</label>
                             <div class="d-flex align-items-center">
                                 <asp:TextBox ID="txtRol1" runat="server" CssClass="form-control form-control-sm me-2"
-                                             MaxLength="5" placeholder="1234"></asp:TextBox>
+                                             MaxLength="5" placeholder="12345"></asp:TextBox>
                                 <span class="me-2">-</span>
                                 <asp:TextBox ID="txtRol2" runat="server" CssClass="form-control form-control-sm"
-                                             MaxLength="5" placeholder="5678"></asp:TextBox>
+                                             MaxLength="5" placeholder="67890"></asp:TextBox>
                             </div>
                         </div>
                         <asp:Label ID="lblMensajeRol" runat="server" ForeColor="Red"></asp:Label>
