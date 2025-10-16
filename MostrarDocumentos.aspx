@@ -49,7 +49,7 @@
                         <h5 class="card-header text-center"> Permiso de Circulación</h5>
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus permisos de circulación pagados en línea.</p>
-                            <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
+
                             <a href="https://localhost:44333/RecuperacionCirculacion.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <h5 class="card-header text-center"> Patente <br> Municipal</h5>
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus patentes municipales pagadas en línea.</p>
-                            <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
+
                             <a href="https://localhost:44333/RecuperacionPatente.aspx" class="btn btn-primary ">Mostrar Documentos</a>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <h5 class="card-header text-center"> Aseo Extraordinario</h5>
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus pagos de aseo extraordinario en línea.</p>
-                            <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
+                            
                             <a href="https://localhost:44333/RecuperacionAseo.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                         <h5 class="card-header text-center">Convenios <br>de Pago</h5>
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar sus convenios de pago realizados en línea.</p>
-                            <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
+
                             <a href="https://localhost:44333/RecuperacionConvenio.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                         <h5 class="card-header text-center"> Otros <br> Pagos</h5>
                         <div class="card-body">
                             <p class="card-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium;">Aquí puede recuperar otros pagos realizados en línea.</p>
-                            <p class="fw-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: medium; font-weight: bold;">2 documentos</p>
+
                             <a href="https://localhost:44333/RecuperacionOtros.aspx" class="btn btn-primary">Mostrar Documentos</a>
                         </div>
                     </div>

@@ -30,7 +30,8 @@
 
                         <label for="txtRut" class="form-label fs-6">Ingrese RUT:</label>
                         <asp:TextBox ID="txtRut" runat="server" CssClass="form-control form-control-sm mb-3"
-                                     MaxLength="12" placeholder="11111111-1"></asp:TextBox>
+                                     MaxLength="12"></asp:TextBox>
+
                         <asp:Label ID="lblMensajeRut" runat="server" ForeColor="Red"></asp:Label>
                         <asp:Button ID="btnRecuperarRut" runat="server" Text="Recuperar Documento"
                                     CssClass="btn btn-primary" OnClick="btnRecuperarRut_Click" />
@@ -60,9 +61,9 @@
                                 Ingrese patente:
                             </label>
                             <asp:TextBox ID="txtPatente" runat="server" CssClass="form-control form-control-sm mb-3"
-                                         MaxLength="6" placeholder="AA1234 o AABB12"></asp:TextBox>
+                                MaxLength="6"  placeholder="AA1234 o AABB12"></asp:TextBox>
                         </div>
-                        <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3"></asp:Label>
+                        <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" CssClass="mb-3" ></asp:Label>
                         <asp:Button ID="btnRecuperarPatente" runat="server" Text="Recuperar Documento"
                                     CssClass="btn btn-primary" OnClick="btnRecuperarPatente_Click" />
                     </div>

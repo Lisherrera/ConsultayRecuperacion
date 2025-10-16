@@ -239,6 +239,16 @@
       <DependentUpon>Usuarios.edmx</DependentUpon>
       <LastGenOutput>Usuarios.vb</LastGenOutput>
     </Content>
+    <Content Include="UsuariosT.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UsuariosT.edmx</DependentUpon>
+      <LastGenOutput>UsuariosT.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="UsuariosT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UsuariosT.edmx</DependentUpon>
+      <LastGenOutput>UsuariosT.vb</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +289,9 @@
     <Compile Include="ConsultaAseoRol.aspx.vb">
       <DependentUpon>ConsultaAseoRol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EncabezadoIngresosDiario.vb">
+      <DependentUpon>UsuariosT.tt</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
@@ -388,6 +401,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Usuarios.tt</DependentUpon>
     </Compile>
+    <Compile Include="UsuariosT.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosT.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosT.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosT.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosT.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosT.tt</DependentUpon>
+    </Compile>
     <Compile Include="vista_aseo_tbk.vb">
       <DependentUpon>BaseDeDatos.tt</DependentUpon>
     </Compile>
@@ -450,6 +478,13 @@
     </EntityDeploy>
     <Content Include="Usuarios.edmx.diagram">
       <DependentUpon>Usuarios.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="UsuariosT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UsuariosT.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UsuariosT.edmx.diagram">
+      <DependentUpon>UsuariosT.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

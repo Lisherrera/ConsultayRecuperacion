@@ -26,10 +26,10 @@ Partial Class MostrarDocumentos
 
     Private Sub CargarDatosUsuario(rut As String)
         Try
-            Using context As New ValparaisoUsuariosEntities() ' Tu DbContext para la nueva vista
+            Using context As New TesoreriaEntities() ' Tu DbContext para la nueva vista
                 ' Buscar el usuario por RUT (sin Trim() todavía para depurar)
-                Dim usuario = context.PATCOM_Maestro_Contribuyente_Vista _
-                    .Where(Function(u) u.RUT.ToUpper() = rut.ToUpper()) _
+                Dim usuario = context.EncabezadoIngresosDiarios _
+                    .Where(Function(u) u.Rut.ToUpper() = rut.ToUpper()) _
                     .FirstOrDefault()
 
                 If usuario IsNot Nothing Then

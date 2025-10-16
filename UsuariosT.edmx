@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Tesoreria.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EncabezadoIngresosDiarios">
+          <Key>
+            <PropertyRef Name="Ano_Proceso" />
+            <PropertyRef Name="Codigo_Area" />
+            <PropertyRef Name="NumeroCaja" />
+            <PropertyRef Name="Orden_Ingreso" />
+            <PropertyRef Name="IDOrden_Ingreso" />
+            <PropertyRef Name="Item_Pago" />
+          </Key>
+          <Property Name="Ano_Proceso" Type="smallint" Nullable="false" />
+          <Property Name="Codigo_Area" Type="smallint" Nullable="false" />
+          <Property Name="NumeroCaja" Type="smallint" Nullable="false" />
+          <Property Name="Orden_Ingreso" Type="int" Nullable="false" />
+          <Property Name="IDOrden_Ingreso" Type="smallint" Nullable="false" />
+          <Property Name="Item_Pago" Type="smallint" Nullable="false" />
+          <Property Name="Fecha_Emision" Type="datetime" />
+          <Property Name="Fecha_Vencimiento" Type="datetime" />
+          <Property Name="Rut" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Placa_Vehiculo" Type="varchar" MaxLength="9" />
+          <Property Name="Rol_Patente" Type="varchar" MaxLength="8" />
+          <Property Name="Rol_Propiedad" Type="varchar" MaxLength="10" />
+          <Property Name="EmitidoPor" Type="varchar" MaxLength="20" />
+          <Property Name="Glosa" Type="varchar" MaxLength="250" />
+          <Property Name="Fecha_OrdenIngreso" Type="datetime" />
+          <Property Name="Numero_OrdenIngreso" Type="float" />
+          <Property Name="FormaDePago" Type="smallint" />
+          <Property Name="NumeroCheque" Type="float" />
+          <Property Name="MontoCheque" Type="float" />
+          <Property Name="RutCheque" Type="varchar" MaxLength="20" />
+          <Property Name="FonoCheque" Type="varchar" MaxLength="15" />
+          <Property Name="GlosaPago" Type="varchar" MaxLength="40" />
+          <Property Name="Banco" Type="varchar" MaxLength="100" />
+          <Property Name="Rol" Type="varchar" MaxLength="15" />
+          <Property Name="Año" Type="float" />
+          <Property Name="Cuota" Type="float" />
+          <Property Name="Periodo" Type="varchar" MaxLength="15" />
+          <Property Name="Cod_Act_Eco" Type="varchar" MaxLength="10" />
+          <Property Name="Tipo_Tributo" Type="varchar" MaxLength="40" />
+          <Property Name="Ano_OrdenIngreso" Type="varchar" MaxLength="4" />
+          <Property Name="NroConvenio" Type="varchar" MaxLength="12" />
+          <Property Name="Tipo_Tarjeta" Type="smallint" />
+          <Property Name="Codigo_Tarjeta" Type="varchar" MaxLength="20" />
+          <Property Name="Rut_Tarjeta" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre_Tarjeta" Type="varchar" MaxLength="40" />
+          <Property Name="Numero_Transaccion" Type="varchar" MaxLength="20" />
+          <Property Name="NombreCheque" Type="varchar" MaxLength="60" />
+          <Property Name="Lectura_CBarras_Cheque" Type="varchar" MaxLength="100" />
+          <Property Name="Plaza" Type="varchar" MaxLength="15" />
+          <Property Name="Cta_Cte" Type="varchar" MaxLength="20" />
+          <Property Name="Lectura_CBarras_Tarjeta" Type="varchar" MaxLength="100" />
+          <Property Name="NumeroValeVista" Type="varchar" MaxLength="11" />
+          <Property Name="BancoValeVista" Type="varchar" MaxLength="15" />
+          <Property Name="MontoValeVista" Type="float" />
+          <Property Name="NombreValeVista" Type="varchar" MaxLength="40" />
+          <Property Name="Fecha_Vcto_Cheque" Type="datetime" />
+          <Property Name="Glosa2" Type="varchar" MaxLength="250" />
+          <Property Name="Glosa3" Type="varchar" MaxLength="250" />
+          <Property Name="Fecha_Pagos_Tarjeta_Conciliado" Type="datetime" />
+          <Property Name="Monto_Tarjeta" Type="float" />
+          <Property Name="Pagado_ConOrdenIngreso" Type="float" />
+          <Property Name="Pagado_ConIDOrdenIngreso" Type="smallint" />
+          <Property Name="Numero_Licencia" Type="float" />
+          <Property Name="idUnidadHabitacional" Type="int" />
+          <Property Name="Folio_Unico" Type="float" />
+          <Property Name="Total_OrdenIngreso" Type="float" />
+          <Property Name="Cod_LugarDePago" Type="int" />
+          <Property Name="Extranjero" Type="smallint" />
+          <Property Name="Folio_Fisico" Type="float" />
+          <Property Name="Estado_Folio" Type="bit" />
+          <Property Name="Ano_de_Permiso" Type="smallint" />
+          <Property Name="Forma_de_Pago_Permiso" Type="smallint" />
+          <Property Name="Tipo_Vehiculo" Type="smallint" />
+          <Property Name="URLBoletinElectronico" Type="varchar" MaxLength="500" />
+          <Property Name="EstadoItSolution" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="TesoreriaStoreContainer">
+          <EntitySet Name="EncabezadoIngresosDiarios" EntityType="Self.EncabezadoIngresosDiarios" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Tesoreria" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EncabezadoIngresosDiario">
+          <Key>
+            <PropertyRef Name="Ano_Proceso" />
+            <PropertyRef Name="Codigo_Area" />
+            <PropertyRef Name="NumeroCaja" />
+            <PropertyRef Name="Orden_Ingreso" />
+            <PropertyRef Name="IDOrden_Ingreso" />
+            <PropertyRef Name="Item_Pago" />
+          </Key>
+          <Property Name="Ano_Proceso" Type="Int16" Nullable="false" />
+          <Property Name="Codigo_Area" Type="Int16" Nullable="false" />
+          <Property Name="NumeroCaja" Type="Int16" Nullable="false" />
+          <Property Name="Orden_Ingreso" Type="Int32" Nullable="false" />
+          <Property Name="IDOrden_Ingreso" Type="Int16" Nullable="false" />
+          <Property Name="Item_Pago" Type="Int16" Nullable="false" />
+          <Property Name="Fecha_Emision" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Vencimiento" Type="DateTime" Precision="3" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Placa_Vehiculo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Rol_Patente" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Rol_Propiedad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmitidoPor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Glosa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_OrdenIngreso" Type="DateTime" Precision="3" />
+          <Property Name="Numero_OrdenIngreso" Type="Double" />
+          <Property Name="FormaDePago" Type="Int16" />
+          <Property Name="NumeroCheque" Type="Double" />
+          <Property Name="MontoCheque" Type="Double" />
+          <Property Name="RutCheque" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FonoCheque" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="GlosaPago" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Double" />
+          <Property Name="Cuota" Type="Double" />
+          <Property Name="Periodo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Cod_Act_Eco" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Tributo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ano_OrdenIngreso" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NroConvenio" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Tarjeta" Type="Int16" />
+          <Property Name="Codigo_Tarjeta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Rut_Tarjeta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Tarjeta" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_Transaccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCheque" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Lectura_CBarras_Cheque" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Plaza" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Cta_Cte" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Lectura_CBarras_Tarjeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroValeVista" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="BancoValeVista" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MontoValeVista" Type="Double" />
+          <Property Name="NombreValeVista" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Vcto_Cheque" Type="DateTime" Precision="3" />
+          <Property Name="Glosa2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Glosa3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Pagos_Tarjeta_Conciliado" Type="DateTime" Precision="3" />
+          <Property Name="Monto_Tarjeta" Type="Double" />
+          <Property Name="Pagado_ConOrdenIngreso" Type="Double" />
+          <Property Name="Pagado_ConIDOrdenIngreso" Type="Int16" />
+          <Property Name="Numero_Licencia" Type="Double" />
+          <Property Name="idUnidadHabitacional" Type="Int32" />
+          <Property Name="Folio_Unico" Type="Double" />
+          <Property Name="Total_OrdenIngreso" Type="Double" />
+          <Property Name="Cod_LugarDePago" Type="Int32" />
+          <Property Name="Extranjero" Type="Int16" />
+          <Property Name="Folio_Fisico" Type="Double" />
+          <Property Name="Estado_Folio" Type="Boolean" />
+          <Property Name="Ano_de_Permiso" Type="Int16" />
+          <Property Name="Forma_de_Pago_Permiso" Type="Int16" />
+          <Property Name="Tipo_Vehiculo" Type="Int16" />
+          <Property Name="URLBoletinElectronico" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoItSolution" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="TesoreriaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EncabezadoIngresosDiarios" EntityType="Self.EncabezadoIngresosDiario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TesoreriaStoreContainer" CdmEntityContainer="TesoreriaEntities">
+          <EntitySetMapping Name="EncabezadoIngresosDiarios">
+            <EntityTypeMapping TypeName="Tesoreria.EncabezadoIngresosDiario">
+              <MappingFragment StoreEntitySet="EncabezadoIngresosDiarios">
+                <ScalarProperty Name="Ano_Proceso" ColumnName="Ano_Proceso" />
+                <ScalarProperty Name="Codigo_Area" ColumnName="Codigo_Area" />
+                <ScalarProperty Name="NumeroCaja" ColumnName="NumeroCaja" />
+                <ScalarProperty Name="Orden_Ingreso" ColumnName="Orden_Ingreso" />
+                <ScalarProperty Name="IDOrden_Ingreso" ColumnName="IDOrden_Ingreso" />
+                <ScalarProperty Name="Item_Pago" ColumnName="Item_Pago" />
+                <ScalarProperty Name="Fecha_Emision" ColumnName="Fecha_Emision" />
+                <ScalarProperty Name="Fecha_Vencimiento" ColumnName="Fecha_Vencimiento" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Placa_Vehiculo" ColumnName="Placa_Vehiculo" />
+                <ScalarProperty Name="Rol_Patente" ColumnName="Rol_Patente" />
+                <ScalarProperty Name="Rol_Propiedad" ColumnName="Rol_Propiedad" />
+                <ScalarProperty Name="EmitidoPor" ColumnName="EmitidoPor" />
+                <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+                <ScalarProperty Name="Fecha_OrdenIngreso" ColumnName="Fecha_OrdenIngreso" />
+                <ScalarProperty Name="Numero_OrdenIngreso" ColumnName="Numero_OrdenIngreso" />
+                <ScalarProperty Name="FormaDePago" ColumnName="FormaDePago" />
+                <ScalarProperty Name="NumeroCheque" ColumnName="NumeroCheque" />
+                <ScalarProperty Name="MontoCheque" ColumnName="MontoCheque" />
+                <ScalarProperty Name="RutCheque" ColumnName="RutCheque" />
+                <ScalarProperty Name="FonoCheque" ColumnName="FonoCheque" />
+                <ScalarProperty Name="GlosaPago" ColumnName="GlosaPago" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="Cod_Act_Eco" ColumnName="Cod_Act_Eco" />
+                <ScalarProperty Name="Tipo_Tributo" ColumnName="Tipo_Tributo" />
+                <ScalarProperty Name="Ano_OrdenIngreso" ColumnName="Ano_OrdenIngreso" />
+                <ScalarProperty Name="NroConvenio" ColumnName="NroConvenio" />
+                <ScalarProperty Name="Tipo_Tarjeta" ColumnName="Tipo_Tarjeta" />
+                <ScalarProperty Name="Codigo_Tarjeta" ColumnName="Codigo_Tarjeta" />
+                <ScalarProperty Name="Rut_Tarjeta" ColumnName="Rut_Tarjeta" />
+                <ScalarProperty Name="Nombre_Tarjeta" ColumnName="Nombre_Tarjeta" />
+                <ScalarProperty Name="Numero_Transaccion" ColumnName="Numero_Transaccion" />
+                <ScalarProperty Name="NombreCheque" ColumnName="NombreCheque" />
+                <ScalarProperty Name="Lectura_CBarras_Cheque" ColumnName="Lectura_CBarras_Cheque" />
+                <ScalarProperty Name="Plaza" ColumnName="Plaza" />
+                <ScalarProperty Name="Cta_Cte" ColumnName="Cta_Cte" />
+                <ScalarProperty Name="Lectura_CBarras_Tarjeta" ColumnName="Lectura_CBarras_Tarjeta" />
+                <ScalarProperty Name="NumeroValeVista" ColumnName="NumeroValeVista" />
+                <ScalarProperty Name="BancoValeVista" ColumnName="BancoValeVista" />
+                <ScalarProperty Name="MontoValeVista" ColumnName="MontoValeVista" />
+                <ScalarProperty Name="NombreValeVista" ColumnName="NombreValeVista" />
+                <ScalarProperty Name="Fecha_Vcto_Cheque" ColumnName="Fecha_Vcto_Cheque" />
+                <ScalarProperty Name="Glosa2" ColumnName="Glosa2" />
+                <ScalarProperty Name="Glosa3" ColumnName="Glosa3" />
+                <ScalarProperty Name="Fecha_Pagos_Tarjeta_Conciliado" ColumnName="Fecha_Pagos_Tarjeta_Conciliado" />
+                <ScalarProperty Name="Monto_Tarjeta" ColumnName="Monto_Tarjeta" />
+                <ScalarProperty Name="Pagado_ConOrdenIngreso" ColumnName="Pagado_ConOrdenIngreso" />
+                <ScalarProperty Name="Pagado_ConIDOrdenIngreso" ColumnName="Pagado_ConIDOrdenIngreso" />
+                <ScalarProperty Name="Numero_Licencia" ColumnName="Numero_Licencia" />
+                <ScalarProperty Name="idUnidadHabitacional" ColumnName="idUnidadHabitacional" />
+                <ScalarProperty Name="Folio_Unico" ColumnName="Folio_Unico" />
+                <ScalarProperty Name="Total_OrdenIngreso" ColumnName="Total_OrdenIngreso" />
+                <ScalarProperty Name="Cod_LugarDePago" ColumnName="Cod_LugarDePago" />
+                <ScalarProperty Name="Extranjero" ColumnName="Extranjero" />
+                <ScalarProperty Name="Folio_Fisico" ColumnName="Folio_Fisico" />
+                <ScalarProperty Name="Estado_Folio" ColumnName="Estado_Folio" />
+                <ScalarProperty Name="Ano_de_Permiso" ColumnName="Ano_de_Permiso" />
+                <ScalarProperty Name="Forma_de_Pago_Permiso" ColumnName="Forma_de_Pago_Permiso" />
+                <ScalarProperty Name="Tipo_Vehiculo" ColumnName="Tipo_Vehiculo" />
+                <ScalarProperty Name="URLBoletinElectronico" ColumnName="URLBoletinElectronico" />
+                <ScalarProperty Name="EstadoItSolution" ColumnName="EstadoItSolution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
